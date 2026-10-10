@@ -22,6 +22,7 @@ from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import articles  # les GUIDES écrits (contenu SEO), avec leur lien d'affiliation en un seul endroit
+import trafic    # le compteur de visites (sobre : sans cookie, sans adresse IP)
 
 ICI = os.path.dirname(os.path.abspath(__file__))
 LECTURE_VERTE, LECTURE_VERTE_FORTE = "#16a34a", "#15803d"
@@ -375,6 +376,20 @@ def fabriquer_serveur(port=8080):
 
         def do_GET(self):
             chemin = self.path.split("?")[0]
+
+            # ⚠️ ON COMPTE LES PAGES AFFICHÉES, PAS LES FICHIERS. Une icône ou un fichier JSON n'est
+            # pas une visite : les compter gonflerait les chiffres sans rien dire de vrai. On garde
+            # aussi le détail par page — « 40 visites » ne dit pas quoi corriger, « 40 visites dont
+            # 31 sur le guide VPN » le dit.
+            if not chemin.startswith(("/icone", "/manifeste", "/publication.json", "/trafic.json",
+                                      "/sitemap", "/robots")):
+                trafic.compter(chemin, self.headers.get("Referer") or "")
+
+            if chemin == "/trafic.json":
+                import json as _json
+                self._envoyer(_json.dumps(trafic.instantane(), ensure_ascii=False).encode(),
+                              "application/json; charset=utf-8")
+                return
 
             # ⚠️ DIAGNOSTIC TEMPORAIRE — POSÉ PUIS RETIRÉ LE MÊME JOUR (10/10/2026).
             # Question de José : « Quand je prendrai l'abonnement OVH, mon téléphone devra-t-il toujours

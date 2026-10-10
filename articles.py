@@ -13,6 +13,9 @@ ci-dessous et de publier — les 5 liens de l'article suivent automatiquement.
 
 LIEN_AFFILIE = "https://nordvpn.com/"
 
+import json  # noqa: E402 — sert à charger les articles écrits par Pépite (voir _charger_articles_ecrits)
+import os    # noqa: E402 — idem : lire le dossier articles-auto/
+
 # ⚠️ À REMPLACER dès que le compte d'affiliation est approuvé :
 #   LIEN_AFFILIE = "https://nordvpn.com/…?aff_id=…&utm_source=…"   (le lien exact du tableau de bord)
 
@@ -232,3 +235,36 @@ rien, demande le remboursement : tu auras au moins eu ta réponse.</p>
 
 
 ARTICLES = {a["slug"]: a for a in (VPN_EFOOTBALL,)}
+
+
+def _charger_articles_ecrits():
+    """Les articles ÉCRITS PAR PÉPITE, déposés en JSON dans `articles-auto/`.
+
+    ⚠️ POURQUOI DU JSON ET PAS DU CODE. Pépite met ses articles en ligne toute seule : si elle
+    devait réécrire ce fichier Python, une seule faute de syntaxe casserait TOUT le site — les
+    guides déjà publiés compris. Un fichier JSON par article ne peut casser que lui-même : s'il est
+    illisible, on l'ignore et le reste du site continue de servir.
+
+    ⚠️ ET LE FORMAT EST CELUI DES ARTICLES ÉCRITS À LA MAIN (mêmes clés), pour que le site, le
+    sitemap et le correcteur n'aient pas deux façons de faire.
+    """
+    dossier = os.path.join(os.path.dirname(os.path.abspath(__file__)), "articles-auto")
+    try:
+        noms = sorted(os.listdir(dossier))
+    except OSError:
+        return {}
+    trouves = {}
+    for nom in noms:
+        if not nom.endswith(".json"):
+            continue
+        try:
+            with open(os.path.join(dossier, nom), encoding="utf-8") as f:
+                a = json.load(f)
+            if isinstance(a, dict) and a.get("slug") and a.get("corps") and a.get("h1"):
+                trouves[a["slug"]] = a
+        except (OSError, ValueError):
+            continue
+    return trouves
+
+
+ARTICLES.update(_charger_articles_ecrits())
