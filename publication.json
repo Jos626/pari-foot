@@ -1,6 +1,6 @@
 {
  "jour": "2026-10-10",
- "fabrique_le": "2026-10-10T12:03:02+00:00",
+ "fabrique_le": "2026-10-10T13:14:19+00:00",
  "matchs": [
   {
    "match": "Deportivo Pereira - Deportivo Cali",
@@ -143,13 +143,13 @@
   {
    "match": "Sunderland - Brighton",
    "message": "🏟️  **Sunderland**  🆚  **Brighton**\n   🇬🇧 Angleterre · Premier League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 73 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 13 %     **0-1** · 11 %     **1-0** · 9 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi.",
-   "coup_envoi": "2026-10-10T14:00+00:00",
+   "coup_envoi": null,
    "en_direct": false
   },
   {
    "match": "Aston Villa - Brentford",
    "message": "🏟️  **Aston Villa**  🆚  **Brentford**\n   🇬🇧 Angleterre · Premier League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 76 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 11 %     **2-1** · 9 %     **1-0** · 9 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi.",
-   "coup_envoi": "2026-10-10T14:00+00:00",
+   "coup_envoi": null,
    "en_direct": false
   },
   {
@@ -162,6 +162,18 @@
    "match": "Tamworth - Barrow",
    "message": "🏟️  **Tamworth**  🆚  **Barrow**\n   🇬🇧 Angleterre · National League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 81 % de chances\n\n🟢🟢 DOUBLE CHANCE 1X (Tamworth gagne ou match nul)\n     📈 84 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **3-0** · 9 %     **2-0** · 8 %     **3-1** · 8 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi.",
    "coup_envoi": "2026-10-10T14:00+00:00",
+   "en_direct": false
+  },
+  {
+   "match": "Real Madrid - Villarreal",
+   "message": "🏟️  **Real Madrid**  🆚  **Villarreal**\n   🇪🇸 Espagne · LaLiga\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 80 % de chances\n\n🟢 DOUBLE CHANCE 1X (Real Madrid gagne ou match nul)\n     📈 79 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **2-0** · 10 %     **2-1** · 9 %     **3-0** · 9 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-10T19:00+00:00",
+   "en_direct": false
+  },
+  {
+   "match": "Guingamp - Pau",
+   "message": "🏟️  **Guingamp**  🆚  **Pau FC**\n   🇫🇷 France\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 77 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 11 %     **2-1** · 9 %     **1-0** · 8 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": null,
    "en_direct": false
   }
  ],
