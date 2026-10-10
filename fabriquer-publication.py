@@ -39,6 +39,41 @@ def lire(nom, defaut):
         return defaut
 
 
+def nommer_pari(item):
+    """Le libellé d'un pari, tel que le bot l'écrirait.
+
+    ⛔ POURQUOI CETTE FONCTION : le vivier laisse « libelle » VIDE dès que le pari n'est pas une
+    double chance. L'application affichait donc « None » — José l'a vu sur sa capture (« San
+    Giovanni - Tre Fiori → None »). Un « None » à l'écran, c'est un trou dans la confiance : le
+    client se demande ce qu'on lui cache. On nomme donc le pari avec le vocabulaire du bot :
+    victoire → « Victoire de X », combiné → « Combiné de X », double chance → « X ou Nul ».
+    """
+    libelle = (item.get("libelle") or "").strip()
+    if libelle:
+        return libelle
+    favori = (item.get("favori") or "").strip()
+    pari = (item.get("pari") or "").strip().lower()
+    if "victoire" in pari:
+        return f"Victoire de {favori}" if favori else "Victoire"
+    if "combin" in pari:
+        return f"Combiné de {favori}" if favori else "Combiné"
+    if "double" in pari:
+        return f"{favori} ou Nul" if favori else "Double chance"
+    return pari.capitalize() if pari else "—"
+
+
+def horaires():
+    """Heure de coup d'envoi et état « en direct », par match — les mêmes données que le bot."""
+    c = lire("cotes-betclic.json", {})
+    table = {}
+    for nom, fiche in (c.get("cotes") or {}).items():
+        if isinstance(fiche, dict):
+            table[nom] = {"coup_envoi": fiche.get("coup_envoi"),
+                          "en_direct": bool(fiche.get("en_direct")),
+                          "competition": fiche.get("competition")}
+    return table
+
+
 def main():
     import moteur                  # importé ici pour que le dossier courant soit déjà le bon
 
@@ -63,14 +98,22 @@ def main():
             continue
         if "MES PARIS SUR CE MATCH" not in texte:
             continue
-        matchs.append({"match": nom, "message": texte})
+        # on ajoute l'heure du coup d'envoi quand on la connaît : José a demandé « ce sont les matchs
+        # à venir pour aujourd'hui ? ». La réponse est oui (le bot refuse les matchs commencés), mais
+        # mieux vaut le montrer que le dire.
+        table = horaires()
+        infos = table.get(nom) or {}
+        matchs.append({"match": nom, "message": texte,
+                       "coup_envoi": infos.get("coup_envoi"),
+                       "en_direct": infos.get("en_direct", False)})
 
     pool = []
     for v in (vivier.get("vivier") or []):
         if not isinstance(v, dict) or not v.get("match"):
             continue
         pool.append({"match": v.get("match"), "competition": v.get("competition"),
-                     "libelle": v.get("libelle"), "cote": v.get("cote"),
+                     "libelle": nommer_pari(v),          # ⛔ plus jamais de « None » à l'écran
+                     "cote": v.get("cote"),
                      "coup_envoi": v.get("coup_envoi"), "en_direct": bool(v.get("en_direct"))})
 
     publication = {

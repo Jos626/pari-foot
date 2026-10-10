@@ -58,6 +58,7 @@ STYLE = """
           box-shadow:0 1px 2px rgba(15,23,42,.03),0 14px 30px -20px rgba(15,23,42,.22);
           white-space:pre-wrap;word-break:break-word;font-size:15px;line-height:1.62;color:#1e293b}
  .message b{color:#0f172a}
+ .message .quand2{margin:14px 0 0;color:#475569;font-size:14px;font-weight:600}
  .message .trait{color:#dfe5ef;letter-spacing:-1px}
  .mont{background:#fff;border:1px solid #e8edf4;border-radius:18px;padding:16px;margin:0 0 12px;
        box-shadow:0 14px 30px -20px rgba(15,23,42,.22)}
@@ -96,6 +97,25 @@ def _joli(texte):
     return protege
 
 
+def _quand_ou_direct(fiche):
+    """L'heure du coup d'envoi, ou la mention « en direct ».
+
+    ⚠️ POURQUOI C'EST ICI : José a demandé « ce sont les matchs à venir pour aujourd'hui ? ». La
+    réponse est oui — le bot refuse d'analyser un match commencé — mais le montrer vaut mieux que le
+    dire. Et si un match a commencé entre-temps, autant l'écrire franchement.
+    """
+    if fiche.get("en_direct"):
+        return "🔴 En direct en ce moment — trop tard pour ce match"
+    brut = fiche.get("coup_envoi") or ""
+    if not brut:
+        return ""
+    try:
+        quand = datetime.fromisoformat(brut)
+        return "🕐 Coup d'envoi à " + quand.astimezone().strftime("%Hh%M")
+    except (ValueError, TypeError):
+        return ""
+
+
 def _carte_message(m):
     """UNE CARTE = LE MESSAGE DU BOT, MOT POUR MOT.
 
@@ -106,7 +126,9 @@ def _carte_message(m):
     probables que le bot donne toujours. C'était une deuxième vérité avec les mêmes chiffres.
     Maintenant on affiche le texte que le moteur du bot a produit. Il ne peut plus y avoir d'écart.
     """
-    return f'<div class="message">{_joli(m.get("message"))}</div>'
+    quand = _quand_ou_direct(m)
+    pied = f'<p class="quand2">{quand}</p>' if quand else ""
+    return f'<div class="message">{_joli(m.get("message"))}{pied}</div>' 
 
 
 def _coherent(paris):
