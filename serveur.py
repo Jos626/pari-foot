@@ -230,16 +230,16 @@ def fabriquer_serveur(port=8080):
             chemin = self.path.split("?")[0]
 
             # ⚠️ DIAGNOSTIC TEMPORAIRE — POSÉ PUIS RETIRÉ LE MÊME JOUR (10/10/2026).
-# Question de José : « Quand je prendrai l'abonnement OVH, mon téléphone devra-t-il toujours
-# garder la récolte des cotes ? » Le test a été fait DEPUIS FRANCFORT — un vrai serveur, pas
-# une supposition : m.betclic.ci répond 403 Forbidden, la page du football comme la racine.
-# Betclic Côte d'Ivoire refuse les serveurs européens.
-# ✅ CONCLUSION RETENUE : la RÉCOLTE DES COTES RESTE SUR LE TÉLÉPHONE, quoi qu'il arrive.
-# Le reste (analyses, montante, application) peut partir sur OVH.
+            # Question de José : « Quand je prendrai l'abonnement OVH, mon téléphone devra-t-il toujours
+            # garder la récolte des cotes ? » Le test a été fait DEPUIS FRANCFORT — un vrai serveur, pas
+            # une supposition : m.betclic.ci répond 403 Forbidden, la page du football comme la racine.
+            # Betclic Côte d'Ivoire refuse les serveurs européens.
+            # ✅ CONCLUSION RETENUE : la RÉCOLTE DES COTES RESTE SUR LE TÉLÉPHONE, quoi qu'il arrive.
+            # Le reste (analyses, montante, application) peut partir sur OVH.
 # ⛔ On ne réactive pas ce genre de route en ligne : une adresse écrite en dur est la règle,
-# et un diagnostic public qui va chercher des pages est exactement ce qu'on ne garde pas.
+            # et un diagnostic public qui va chercher des pages est exactement ce qu'on ne garde pas.
 
-if chemin in ("/", "/index.html"):
+            if chemin in ("/", "/index.html"):
                 self._envoyer(page_jour(), "text/html; charset=utf-8")
                 return
             if chemin == "/montante":
