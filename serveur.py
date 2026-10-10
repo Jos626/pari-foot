@@ -229,39 +229,17 @@ def fabriquer_serveur(port=8080):
         def do_GET(self):
             chemin = self.path.split("?")[0]
 
-            # ⚠️ DIAGNOSTIC TEMPORAIRE (10/10/2026) — À SUPPRIMER APRÈS USAGE.
-            # Question de José : « Quand je prendrai l'abonnement OVH, mon téléphone devra-t-il
-            # toujours garder la récolte des cotes ? » Réponse : ça dépend d'une seule chose —
-            # un serveur européen peut-il lire m.betclic.ci ? Le test depuis plusieurs pays montre
-            # un 403 aux États-Unis et une REDIRECTION en Allemagne ; reste à savoir où elle mène.
-            # Ce serveur est à Francfort : c'est exactement la bonne machine pour trancher.
-            # ⛔ L'ADRESSE EST ÉCRITE EN DUR, ET C'EST VOLONTAIRE : jamais d'URL venue de l'extérieur,
-            # sinon n'importe qui pourrait faire sortir des requêtes du serveur (faille SSRF).
-            if chemin == "/diagnostic-betclic":
-                import urllib.request as _u
-                resultat = {}
-                for etiquette, adresse in (("page du football", "https://m.betclic.ci/football-sfootball"),
-                                           ("racine du site", "https://m.betclic.ci")):
-                    try:
-                        requete = _u.Request(adresse, headers={
-                            "User-Agent": "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 "
-                                          "(KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36",
-                            "Accept-Language": "fr-FR,fr;q=0.9"})
-                        with _u.urlopen(requete, timeout=25) as rep:
-                            corps = rep.read().decode(errors="replace")
-                            resultat[etiquette] = {
-                                "code": rep.status, "adresse_finale": rep.url,
-                                "taille": len(corps),
-                                "parle_de_football": "football" in corps.lower(),
-                                "parle_de_cote_ivoire": "ivoire" in corps.lower() or "ci" in rep.url,
-                            }
-                    except Exception as e:
-                        resultat[etiquette] = {"erreur": f"{type(e).__name__}: {str(e)[:120]}"}
-                self._envoyer(json.dumps(resultat, ensure_ascii=False, indent=1).encode(),
-                              "application/json; charset=utf-8")
-                return
+            # ⚠️ DIAGNOSTIC TEMPORAIRE — POSÉ PUIS RETIRÉ LE MÊME JOUR (10/10/2026).
+# Question de José : « Quand je prendrai l'abonnement OVH, mon téléphone devra-t-il toujours
+# garder la récolte des cotes ? » Le test a été fait DEPUIS FRANCFORT — un vrai serveur, pas
+# une supposition : m.betclic.ci répond 403 Forbidden, la page du football comme la racine.
+# Betclic Côte d'Ivoire refuse les serveurs européens.
+# ✅ CONCLUSION RETENUE : la RÉCOLTE DES COTES RESTE SUR LE TÉLÉPHONE, quoi qu'il arrive.
+# Le reste (analyses, montante, application) peut partir sur OVH.
+# ⛔ On ne réactive pas ce genre de route en ligne : une adresse écrite en dur est la règle,
+# et un diagnostic public qui va chercher des pages est exactement ce qu'on ne garde pas.
 
-            if chemin in ("/", "/index.html"):
+if chemin in ("/", "/index.html"):
                 self._envoyer(page_jour(), "text/html; charset=utf-8")
                 return
             if chemin == "/montante":
