@@ -16,7 +16,9 @@ n'importe qui sans rien révéler de qui que ce soit.
 import html
 import json
 import os
+import re
 import sys
+from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 ICI = os.path.dirname(os.path.abspath(__file__))
@@ -52,6 +54,11 @@ STYLE = """
  .pari .pc{font-weight:700;font-size:15px;color:#15803d;min-width:52px;text-align:right}
  .pari .pas{font-size:13px;min-width:26px;text-align:center}
  .plaisir{color:#8896a8;font-size:12.5px;margin:10px 0 0;line-height:1.6}
+ .message{background:#fff;border:1px solid #e8edf4;border-radius:18px;padding:18px 16px;margin:0 0 14px;
+          box-shadow:0 1px 2px rgba(15,23,42,.03),0 14px 30px -20px rgba(15,23,42,.22);
+          white-space:pre-wrap;word-break:break-word;font-size:15px;line-height:1.62;color:#1e293b}
+ .message b{color:#0f172a}
+ .message .trait{color:#dfe5ef;letter-spacing:-1px}
  .mont{background:#fff;border:1px solid #e8edf4;border-radius:18px;padding:16px;margin:0 0 12px;
        box-shadow:0 14px 30px -20px rgba(15,23,42,.22)}
  .mont .haut{display:flex;align-items:baseline;gap:10px;margin:0 0 6px}
@@ -75,6 +82,31 @@ def lire_publication():
             return json.load(f)
     except (OSError, ValueError):
         return None
+
+
+def _joli(texte):
+    """Le texte du bot -> du HTML lisible. On ÉCHAPPE d'abord, on met en forme ensuite.
+
+    ⚠️ L'ÉCHAPPEMENT D'ABORD N'EST PAS UN DÉTAIL : les analyses contiennent des noms d'équipes et de
+    compétitions qui viennent de sources extérieures. Un « < » non échappé casserait la page.
+    """
+    protege = html.escape(str(texte or ""))
+    protege = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", protege)
+    protege = re.sub(r"(━━+)", r'<span class="trait">\1</span>', protege)
+    return protege
+
+
+def _carte_message(m):
+    """UNE CARTE = LE MESSAGE DU BOT, MOT POUR MOT.
+
+    ⛔ LEÇON DU 10/10/2026. José : « Je veux que ce soit exactement comme avec le bot. Et je veux pas
+    l'histoire des analyses. Non ! Fais comme exactement avec le bot. » Avant, cette fonction
+    reconstruisait un joli résumé à partir d'un fichier intermédiaire : d'autres mots, un autre ordre,
+    une section « pour le plaisir » qu'il n'avait jamais demandée, et PAS les scores les plus
+    probables que le bot donne toujours. C'était une deuxième vérité avec les mêmes chiffres.
+    Maintenant on affiche le texte que le moteur du bot a produit. Il ne peut plus y avoir d'écart.
+    """
+    return f'<div class="message">{_joli(m.get("message"))}</div>'
 
 
 def _coherent(paris):
@@ -140,10 +172,14 @@ def _carte_montante(v):
 def _page(titre, contenu, actif):
     p = lire_publication() or {}
     jour = p.get("jour") or ""
-    fabrique = (p.get("fabrique_le") or "")[:16].replace("T", " à ")
-    if fabrique:
-        fabrique = fabrique[-5:] and fabrique.replace(fabrique[:11], fabrique[8:10] + "/" + fabrique[5:7]) + ")"
-        fabrique = f"({fabrique}"
+    # ⚠️ LA DATE ÉTAIT CASSÉE (José l'a vue : « chiffres du (10/10à 01:27) »). Un bricolage de
+    # découpage de chaîne produisait une parenthèse et un « à » collés. On lit la date pour de bon.
+    fabrique = ""
+    try:
+        quand = datetime.fromisoformat(p.get("fabrique_le") or "")
+        fabrique = quand.astimezone().strftime("le %d/%m à %H:%M")
+    except (ValueError, TypeError):
+        fabrique = ""
     onglets = (f'<a class="{"actif" if actif == "jour" else ""}" href="/">Aujourd\'hui</a>'
                f'<a class="{"actif" if actif == "montante" else ""}" href="/montante">La montante</a>')
     return f"""<!doctype html><html lang="fr"><head><meta charset="utf-8">
@@ -156,7 +192,7 @@ def _page(titre, contenu, actif):
 <link rel="icon" type="image/png" href="/icone-192.png">
 <style>{STYLE}</style></head><body><div class="page">
 <div class="tete"><img src="/icone-192.png" alt="" width="52" height="52">
-<div><h1>Pari Foot</h1><p>{html.escape(jour)} · chiffres du {html.escape(fabrique or "jour")}</p></div></div>
+<div><h1>Pari Foot</h1><p>{html.escape(jour) if not fabrique else "chiffres " + html.escape(fabrique)}</p></div></div>
 <div class="onglets">{onglets}</div>
 {contenu}
 <p class="pied">Pour l\'installer : menu ⋮ de ton navigateur → « Ajouter à l\'écran d\'accueil ».</p>
@@ -171,7 +207,7 @@ def page_jour():
         corps = ('<div class="vide">Aucune analyse publiée pour le moment.<br>'
                  'Reviens un peu plus tard dans la journée.</div>')
     else:
-        corps = ('<h2>Les analyses du jour</h2>' + "".join(_carte_match(m) for m in matchs))
+        corps = "".join(_carte_message(m) for m in matchs)
     return _page("Aujourd'hui", corps, "jour")
 
 

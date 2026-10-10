@@ -1,343 +1,34 @@
 {
  "jour": "2026-10-10",
- "fabrique_le": "2026-10-10T01:27:33+00:00",
- "source": "bot de pronostics de José Ledanite (calcul sur téléphone, cotes Betclic CI)",
+ "fabrique_le": "2026-10-10T03:05:02+00:00",
  "matchs": [
   {
-   "match": "Once Caldas - Llaneros FC",
-   "paris": [
-    {
-     "libelle": "UNDER 3,5",
-     "pourcent": 73.0,
-     "pastille": "🟢"
-    }
-   ],
-   "plaisir": [
-    {
-     "libelle": "VICTOIRE SÈCHE Once Caldas",
-     "pourcent": 38.2,
-     "pastille": null
-    },
-    {
-     "libelle": "VICTOIRE SÈCHE Llaneros FC",
-     "pourcent": 36.1,
-     "pastille": null
-    },
-    {
-     "libelle": "LES DEUX ÉQUIPES MARQUENT",
-     "pourcent": 51.2,
-     "pastille": null
-    }
-   ]
-  },
-  {
    "match": "Deportivo Pereira - Deportivo Cali",
-   "paris": [
-    {
-     "libelle": "UNDER 3,5",
-     "pourcent": 73.0,
-     "pastille": "🟢"
-    },
-    {
-     "libelle": "DOUBLE CHANCE X2",
-     "pourcent": 74.0,
-     "pastille": "🟢"
-    }
-   ],
-   "plaisir": [
-    {
-     "libelle": "VICTOIRE SÈCHE Deportivo Pereira",
-     "pourcent": 25.1,
-     "pastille": null
-    },
-    {
-     "libelle": "VICTOIRE SÈCHE Deportivo Cali",
-     "pourcent": 47.7,
-     "pastille": null
-    },
-    {
-     "libelle": "LES DEUX ÉQUIPES MARQUENT",
-     "pourcent": 44.2,
-     "pastille": null
-    }
-   ]
+   "message": "🏟️  **Deportivo Pereira**  🆚  **Deportivo Cali**\n   🇨🇴 Colombie · Primera A\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 73 % de chances\n\n🟢 DOUBLE CHANCE X2 (match nul ou Deportivo Cali gagne)\n     📈 74 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **0-1** · 14 %     **0-2** · 12 %     **1-1** · 11 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (12 matchs au minimum), pas sur un classement. Compétition : Primera A.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi."
   },
   {
    "match": "Junior - Internacional de Bogota",
-   "paris": [
-    {
-     "libelle": "PLUS DE 1,5 BUT",
-     "pourcent": 78.0,
-     "pastille": "🟢"
-    }
-   ],
-   "plaisir": [
-    {
-     "libelle": "VICTOIRE SÈCHE Junior FC",
-     "pourcent": 33.9,
-     "pastille": null
-    },
-    {
-     "libelle": "VICTOIRE SÈCHE Internacional de Bogotá",
-     "pourcent": 41.0,
-     "pastille": null
-    },
-    {
-     "libelle": "LES DEUX ÉQUIPES MARQUENT",
-     "pourcent": 61.1,
-     "pastille": null
-    }
-   ]
-  },
-  {
-   "match": "Jaguares De Cordoba - Deportes Tolima",
-   "paris": [],
-   "plaisir": [
-    {
-     "libelle": "VICTOIRE SÈCHE CD Jaguares",
-     "pourcent": 29.6,
-     "pastille": null
-    },
-    {
-     "libelle": "VICTOIRE SÈCHE Tolima",
-     "pourcent": 44.8,
-     "pastille": null
-    },
-    {
-     "libelle": "LES DEUX ÉQUIPES MARQUENT",
-     "pourcent": 52.5,
-     "pastille": null
-    }
-   ]
+   "message": "🏟️  **Junior FC**  🆚  **Internacional de Bogotá**\n   🇨🇴 Colombie · Primera A\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 78 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 11 %     **1-2** · 9 %     **2-1** · 8 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (9 matchs au minimum), pas sur un classement. Compétition : Primera A.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi."
   },
   {
    "match": "Sporting Jax - Birmingham Legion",
-   "paris": [
-    {
-     "libelle": "PLUS DE 1,5 BUT",
-     "pourcent": 81.0,
-     "pastille": "🟢🟢"
-    },
-    {
-     "libelle": "DOUBLE CHANCE X2",
-     "pourcent": 74.0,
-     "pastille": "🟢"
-    }
-   ],
-   "plaisir": [
-    {
-     "libelle": "VICTOIRE SÈCHE Sporting JAX",
-     "pourcent": 25.7,
-     "pastille": null
-    },
-    {
-     "libelle": "VICTOIRE SÈCHE Birmingham Legion FC",
-     "pourcent": 47.4,
-     "pastille": null
-    },
-    {
-     "libelle": "LES DEUX ÉQUIPES MARQUENT",
-     "pourcent": 70.4,
-     "pastille": "🟢"
-    }
-   ]
+   "message": "🏟️  **Sporting JAX**  🆚  **Birmingham Legion FC**\n   🇺🇸 États-Unis · USL Championship\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 81 % de chances\n\n🟢 DOUBLE CHANCE X2 (match nul ou Birmingham Legion FC gagne)\n     📈 74 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n🎲 **Les paris fun** (pour construire tes combinés, si tu le souhaites)\n     🟢 LES DEUX ÉQUIPES MARQUENT · 70 %\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-2** · 9 %     **1-1** · 8 %     **1-3** · 7 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (16 matchs au minimum), pas sur un classement. Compétition : USL Championship.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi."
   },
   {
    "match": "Charleston Battery - Louisville City",
-   "paris": [
-    {
-     "libelle": "PLUS DE 1,5 BUT",
-     "pourcent": 79.0,
-     "pastille": "🟢"
-    }
-   ],
-   "plaisir": [
-    {
-     "libelle": "VICTOIRE SÈCHE Charleston Battery",
-     "pourcent": 41.4,
-     "pastille": null
-    },
-    {
-     "libelle": "VICTOIRE SÈCHE Louisville City FC",
-     "pourcent": 33.4,
-     "pastille": null
-    },
-    {
-     "libelle": "LES DEUX ÉQUIPES MARQUENT",
-     "pourcent": 61.4,
-     "pastille": null
-    }
-   ]
-  },
-  {
-   "match": "Miami - Loudoun Utd",
-   "paris": [],
-   "plaisir": [
-    {
-     "libelle": "VICTOIRE SÈCHE Miami FC",
-     "pourcent": 38.8,
-     "pastille": null
-    },
-    {
-     "libelle": "VICTOIRE SÈCHE Loudoun United FC",
-     "pourcent": 35.7,
-     "pastille": null
-    },
-    {
-     "libelle": "LES DEUX ÉQUIPES MARQUENT",
-     "pourcent": 60.7,
-     "pastille": null
-    }
-   ]
+   "message": "🏟️  **Charleston Battery**  🆚  **Louisville City FC**\n   🇺🇸 États-Unis · USL Championship\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 79 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 10 %     **2-1** · 9 %     **1-0** · 8 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (17 matchs au minimum), pas sur un classement. Compétition : USL Championship.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi."
   },
   {
    "match": "Detroit City FC - Rhode Island FC",
-   "paris": [
-    {
-     "libelle": "UNDER 3,5",
-     "pourcent": 75.0,
-     "pastille": "🟢"
-    }
-   ],
-   "plaisir": [
-    {
-     "libelle": "VICTOIRE SÈCHE Detroit City FC",
-     "pourcent": 37.0,
-     "pastille": null
-    },
-    {
-     "libelle": "VICTOIRE SÈCHE Rhode Island FC",
-     "pourcent": 36.8,
-     "pastille": null
-    },
-    {
-     "libelle": "LES DEUX ÉQUIPES MARQUENT",
-     "pourcent": 41.9,
-     "pastille": null
-    }
-   ]
+   "message": "🏟️  **Detroit City FC**  🆚  **Rhode Island FC**\n   🇺🇸 États-Unis · USL Championship\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 75 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-0** · 14 %     **1-1** · 13 %     **0-0** · 12 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (17 matchs au minimum), pas sur un classement. Compétition : USL Championship.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi."
   },
   {
    "match": "Tlaxcala FC - Piratas",
-   "paris": [
-    {
-     "libelle": "PLUS DE 1,5 BUT",
-     "pourcent": 78.0,
-     "pastille": "🟢"
-    },
-    {
-     "libelle": "DOUBLE CHANCE X2",
-     "pourcent": 70.0,
-     "pastille": "🟢"
-    }
-   ],
-   "plaisir": [
-    {
-     "libelle": "VICTOIRE SÈCHE Tlaxcala FC",
-     "pourcent": 29.8,
-     "pastille": null
-    },
-    {
-     "libelle": "VICTOIRE SÈCHE Piratas",
-     "pourcent": 44.7,
-     "pastille": null
-    },
-    {
-     "libelle": "LES DEUX ÉQUIPES MARQUENT",
-     "pourcent": 60.8,
-     "pastille": null
-    }
-   ]
-  },
-  {
-   "match": "Barracas Central - CA Huracan",
-   "paris": [],
-   "plaisir": [
-    {
-     "libelle": "VICTOIRE SÈCHE Barracas Central",
-     "pourcent": 34.8,
-     "pastille": null
-    },
-    {
-     "libelle": "VICTOIRE SÈCHE Huracan",
-     "pourcent": 38.1,
-     "pastille": null
-    },
-    {
-     "libelle": "LES DEUX ÉQUIPES MARQUENT",
-     "pourcent": 35.5,
-     "pastille": null
-    }
-   ]
-  },
-  {
-   "match": "Central Córdoba - Estudiantes de La Plata",
-   "paris": [],
-   "plaisir": [
-    {
-     "libelle": "VICTOIRE SÈCHE Barracas Central",
-     "pourcent": 34.8,
-     "pastille": null
-    },
-    {
-     "libelle": "VICTOIRE SÈCHE Huracan",
-     "pourcent": 38.1,
-     "pastille": null
-    },
-    {
-     "libelle": "LES DEUX ÉQUIPES MARQUENT",
-     "pourcent": 35.5,
-     "pastille": null
-    }
-   ]
+   "message": "🏟️  **Tlaxcala FC**  🆚  **Piratas**\n   🇲🇽 Mexique · Liga de Expansion MX Apertura\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 78 % de chances\n\n🟢 DOUBLE CHANCE X2 (match nul ou Piratas gagne)\n     📈 70 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 11 %     **1-2** · 9 %     **0-1** · 8 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (11 matchs au minimum), pas sur un classement. Compétition : Liga de Expansion MX Apertura.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi."
   },
   {
    "match": "Tigre - Banfield",
-   "paris": [
-    {
-     "libelle": "UNDER 3,5",
-     "pourcent": 75.0,
-     "pastille": "🟢"
-    }
-   ],
-   "plaisir": [
-    {
-     "libelle": "VICTOIRE SÈCHE Tigre",
-     "pourcent": 42.5,
-     "pastille": null
-    },
-    {
-     "libelle": "VICTOIRE SÈCHE Banfield",
-     "pourcent": 30.8,
-     "pastille": null
-    },
-    {
-     "libelle": "LES DEUX ÉQUIPES MARQUENT",
-     "pourcent": 40.5,
-     "pastille": null
-    }
-   ]
-  },
-  {
-   "match": "River Plate - Estudiantes Rio Cuarto",
-   "paris": [],
-   "plaisir": [
-    {
-     "libelle": "VICTOIRE SÈCHE River Plate",
-     "pourcent": 44.9,
-     "pastille": null
-    },
-    {
-     "libelle": "VICTOIRE SÈCHE Estudiantes de Río Cuarto",
-     "pourcent": 29.0,
-     "pastille": null
-    },
-    {
-     "libelle": "LES DEUX ÉQUIPES MARQUENT",
-     "pourcent": 41.7,
-     "pastille": null
-    }
-   ]
+   "message": "🏟️  **Tigre**  🆚  **Banfield**\n   🇦🇷 Argentine · Liga Profesional\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 75 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-0** · 16 %     **1-1** · 13 %     **0-0** · 12 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi."
   }
  ],
  "montante": {
@@ -349,47 +40,24 @@
     "competition": "espagne laliga",
     "libelle": "Real Madrid ou Nul",
     "cote": 1.1,
-    "favori": "Real Madrid",
-    "cotes": {
-     "1": 1.35,
-     "X": 5.6,
-     "2": 6.4
-    },
     "coup_envoi": "2026-10-10T19:00+00:00",
-    "en_direct": false,
-    "risques": []
+    "en_direct": false
    },
    {
     "match": "San Giovanni - Tre Fiori",
     "competition": "san marin campionato",
     "libelle": null,
     "cote": 1.12,
-    "favori": "Tre Fiori",
-    "cotes": {
-     "1": 14.0,
-     "X": 5.75,
-     "2": 1.12
-    },
     "coup_envoi": "2026-10-10T13:00+00:00",
-    "en_direct": false,
-    "risques": []
+    "en_direct": false
    },
    {
     "match": "Mexique F. - Jamaïque F.",
     "competition": "matchs amicaux f",
     "libelle": null,
     "cote": 1.123,
-    "favori": "Mexique F.",
-    "cotes": {
-     "1": 1.04,
-     "X": 12.5,
-     "2": 24.0
-    },
     "coup_envoi": null,
-    "en_direct": false,
-    "risques": [
-     "match amical"
-    ]
+    "en_direct": false
    }
   ]
  }
