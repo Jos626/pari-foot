@@ -21,6 +21,8 @@ import sys
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
+import articles  # les GUIDES écrits (contenu SEO), avec leur lien d'affiliation en un seul endroit
+
 ICI = os.path.dirname(os.path.abspath(__file__))
 LECTURE_VERTE, LECTURE_VERTE_FORTE = "#16a34a", "#15803d"
 
@@ -72,6 +74,33 @@ STYLE = """
  .pied{color:#94a3b8;font-size:12px;text-align:center;margin:26px 0 0;line-height:1.7}
  .signature{color:#94a3b8;font-size:12.5px;text-align:center;margin:14px 0 0}
  .signature b{color:#64748b;font-weight:600}
+ /* ── LES GUIDES (José, 10/10/2026) ─────────────────────────────────────────────────────────────
+    C'est ici que vit le CONTENU qui se référence. L'application (analyses, montante) est un outil ;
+    un outil ne se classe pas sur Google. Un article, oui — à condition qu'il soit lisible :
+    paragraphes courts, titres clairs, et un lien d'affiliation qui arrive là où il répond au
+    problème, jamais avant. */
+ .nom-site{font-size:22px;font-weight:700;margin:0;letter-spacing:-.4px}
+ .article{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:20px 18px;
+          box-shadow:0 10px 30px -22px rgba(15,23,42,.35)}
+ .article h1{font-size:23px;line-height:1.3;margin:0 0 10px;letter-spacing:-.4px}
+ .article h2{font-size:18.5px;margin:26px 0 8px;letter-spacing:-.2px;
+             border-top:1px solid #eef2f8;padding-top:18px}
+ .article h2:first-of-type{border-top:0;padding-top:0}
+ .article h3{font-size:15.5px;margin:18px 0 6px;color:#15803d}
+ .article p{margin:0 0 12px;line-height:1.72;font-size:14.5px}
+ .article li{margin:0 0 8px;line-height:1.68;font-size:14.5px}
+ .article ul,.article ol{margin:0 0 12px;padding-left:20px}
+ .article .chapeau{font-size:15.5px;color:#334155;line-height:1.7}
+ .divulgation{background:#f1f5f9;border-left:3px solid #94a3b8;border-radius:0 10px 10px 0;
+              padding:11px 13px;font-size:13px;color:#475569;line-height:1.6;margin:0 0 16px}
+ .lien-affilie{color:#15803d;font-weight:600;text-decoration:underline;text-underline-offset:2px}
+ .bouton-affilie{display:inline-block;background:#16a34a;color:#fff!important;padding:13px 22px;
+                 border-radius:12px;font-weight:700;text-decoration:none;letter-spacing:.2px;
+                 box-shadow:0 10px 24px -12px rgba(22,163,74,.85)}
+ .guide-carte{display:block;background:#fff;border:1px solid #e2e8f0;border-radius:14px;
+              padding:15px 16px;margin:0 0 12px;text-decoration:none;color:#0f172a}
+ .guide-carte b{display:block;font-size:15.5px;margin-bottom:5px}
+ .guide-carte span{font-size:13px;color:#64748b;line-height:1.55}
  .vide{background:#fff;border:1px dashed #d7dee9;border-radius:18px;padding:26px;text-align:center;
        color:#8896a8;font-size:14px}
 """
@@ -191,7 +220,9 @@ def _carte_montante(v):
             f'<p class="quand">{quand}</p></div>')
 
 
-def _page(titre, contenu, actif):
+def _page(titre, contenu, actif, titre_onglet=None, description=None):
+    """La coquille commune. `titre_onglet` et `description` servent aux GUIDES : c'est le titre de
+    l'onglet et la description que Google lit en premier, et c'est ce qui décide du clic."""
     p = lire_publication() or {}
     jour = p.get("jour") or ""
     # ⚠️ LA DATE ÉTAIT CASSÉE (José l'a vue : « chiffres du (10/10à 01:27) »). Un bricolage de
@@ -203,18 +234,30 @@ def _page(titre, contenu, actif):
     except (ValueError, TypeError):
         fabrique = ""
     onglets = (f'<a class="{"actif" if actif == "jour" else ""}" href="/">Aujourd\'hui</a>'
-               f'<a class="{"actif" if actif == "montante" else ""}" href="/montante">La montante</a>')
+               f'<a class="{"actif" if actif == "montante" else ""}" href="/montante">La montante</a>'
+               f'<a class="{"actif" if actif == "guides" else ""}" href="/guides">Guides</a>')
+    # ⚠️ UNE SEULE BALISE <title> PAR PAGE, ET ELLE EST PROPRE (règle SEO : 40 à 60 caractères).
+    # Avant, les guides auraient hérité du titre de l'application — un même titre sur toutes les
+    # pages, ce que Google traite comme du contenu dupliqué.
+    titre_final = titre_onglet or "Pari Foot — les pronostics de José Ledanite"
+    balise_desc = (f'\n<meta name="description" content="{html.escape(description)}">'
+                   if description else "")
+    # ⚠️ UN SEUL H1 PAR PAGE (règle SEO). Le nom du site est donc un H1 sur l'application, mais un
+    # simple texte sur les guides : là, le H1 doit être le TITRE DE L'ARTICLE. Deux H1 sur une page
+    # brouillent le sujet aux yeux de Google.
+    nom_site = ("<h1>Pari Foot</h1>" if actif != "guides"
+                else '<p class="nom-site">Pari Foot</p>')
     return f"""<!doctype html><html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pari Foot — les pronostics de José Ledanite</title>
+<title>{titre_final}</title>{balise_desc}
 <link rel="manifest" href="/manifeste.json">
 <meta name="theme-color" content="#f7f9fc">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="apple-touch-icon" href="/icone-apple-180.png">
 <link rel="icon" type="image/png" href="/icone-192.png">
 <style>{STYLE}</style></head><body><div class="page">
-<div class="tete"><img src="/icone-192.png" alt="" width="52" height="52">
-<div><h1>Pari Foot</h1><p>{html.escape(jour) if not fabrique else "chiffres " + html.escape(fabrique)}</p></div></div>
+<div class="tete"><img src="/icone-192.png" alt="Pari Foot" width="52" height="52">
+<div>{nom_site}<p>{html.escape(jour) if not fabrique else "chiffres " + html.escape(fabrique)}</p></div></div>
 <div class="onglets">{onglets}</div>
 {contenu}
 <p class="pied">Pour l\'installer : menu ⋮ de ton navigateur → « Ajouter à l\'écran d\'accueil ».</p>
@@ -245,6 +288,52 @@ def page_montante():
                  'La cote affichée est celle du pari conseillé.</p>'
                  + "".join(_carte_montante(v) for v in pool))
     return _page("La montante", corps, "montante")
+
+
+def page_guides():
+    """La liste des guides. C'est aussi la porte d'entrée du maillage interne : chaque article doit
+    être atteignable en un clic depuis une page que Google visite souvent."""
+    cartes = "".join(
+        f'<a class="guide-carte" href="/guides/{slug}"><b>{html.escape(a["titre_onglet"])}</b>'
+        f'<span>{html.escape(a["description"])}</span></a>'
+        for slug, a in articles.ARTICLES.items())
+    corps = ('<div class="article"><h1>Les guides</h1>'
+             '<p class="chapeau">Des explications concrètes, écrites pour être utiles — pas des '
+             'listes traduites. Je te dis ce qui marche, et surtout ce qui ne marche pas.</p>'
+             + cartes + '</div>')
+    return _page("Guides", corps, "guides",
+                 titre_onglet="Guides — Pari Foot",
+                 description="Des guides honnêtes sur le VPN, le streaming et le football en ligne, "
+                             "écrits pour les joueurs francophones.")
+
+
+def page_article(slug):
+    """Un guide, avec SON titre d'onglet et SA description (voir la règle SEO dans _page())."""
+    a = articles.ARTICLES.get(slug)
+    if not a:
+        return None
+    corps = (f'<div class="article"><h1>{html.escape(a["h1"])}</h1>'
+             f'<p class="chapeau">{html.escape(a["chapeau"])}</p>'
+             f'{a["corps"]}'
+             f'<p class="pied">Publié le {html.escape(a["publie_le"])} · '
+             f'<a href="/guides">Voir les autres guides</a></p></div>')
+    return _page(a["h1"], corps, "guides",
+                 titre_onglet=a["titre_onglet"], description=a["description"])
+
+
+def sitemap():
+    """LA CARTE DU SITE — indispensable : sans elle, Google met des semaines à trouver les guides.
+    Le domaine est celui du déploiement ; si José change d'adresse, cette ligne suit."""
+    base = os.environ.get("URL_PUBLIQUE", "https://pari-foot.onrender.com").rstrip("/")
+    pages = ["/", "/montante", "/guides"] + [f"/guides/{s}" for s in articles.ARTICLES]
+    urls = "".join(f"<url><loc>{base}{p}</loc></url>" for p in pages)
+    return ('<?xml version="1.0" encoding="UTF-8"?>'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + urls + "</urlset>")
+
+
+def robots():
+    base = os.environ.get("URL_PUBLIQUE", "https://pari-foot.onrender.com").rstrip("/")
+    return f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n"
 
 
 MANIFESTE = """{
@@ -302,6 +391,27 @@ def fabriquer_serveur(port=8080):
                 return
             if chemin == "/montante":
                 self._envoyer(page_montante(), "text/html; charset=utf-8")
+                return
+            # ── LES GUIDES (le contenu qui se référence). José, 10/10/2026 : « on va passer au SEO
+            # de pari foot ». Sans ces pages, il n'y a rien à référencer : une application sans
+            # texte ne se classe pas sur Google.
+            if chemin == "/guides":
+                self._envoyer(page_guides(), "text/html; charset=utf-8")
+                return
+            if chemin.startswith("/guides/"):
+                page = page_article(chemin[len("/guides/"):].strip("/"))
+                if page:
+                    self._envoyer(page, "text/html; charset=utf-8")
+                else:
+                    self._envoyer("<h1>Page introuvable</h1>", "text/html; charset=utf-8", 404)
+                return
+            # La carte du site : elle dit à Google quelles pages existent. Sans elle, un site neuf
+            # peut rester des semaines sans être exploré.
+            if chemin == "/sitemap.xml":
+                self._envoyer(sitemap(), "application/xml; charset=utf-8")
+                return
+            if chemin == "/robots.txt":
+                self._envoyer(robots(), "text/plain; charset=utf-8")
                 return
             if chemin == "/publication.json":
                 self._envoyer(json.dumps(lire_publication() or {},
