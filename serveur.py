@@ -383,7 +383,8 @@ def fabriquer_serveur(port=8080):
             # 31 sur le guide VPN » le dit.
             if not chemin.startswith(("/icone", "/manifeste", "/publication.json", "/trafic.json",
                                       "/sitemap", "/robots")):
-                trafic.compter(chemin, self.headers.get("Referer") or "")
+                trafic.compter(chemin, self.headers.get("Referer") or "",
+                               self.headers.get("User-Agent") or "")
 
             if chemin == "/trafic.json":
                 import json as _json

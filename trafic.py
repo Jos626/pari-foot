@@ -97,12 +97,19 @@ def _provenance(referer):
     return "autre site"
 
 
-def compter(chemin, referer=""):
+def compter(chemin, referer="", agent=""):
     """Une page vue. On garde le détail par jour, par page ET par provenance.
 
     « 40 visites » ne dit pas quoi corriger ; « 40 visites dont 31 sur le guide VPN, venues de
     Google » le dit — et c'est la seule façon de savoir si un article travaille.
+
+    ⚠️ ON NE COMPTE PAS NOS PROPRES VÉRIFICATIONS (constat du 10/10/2026 : la mise en ligne d'un
+    article interroge la page jusqu'à neuf fois pour vérifier qu'elle répond — ces appels
+    apparaissaient comme des visites, et gonflaient les chiffres de José avec mon propre travail).
+    Pépite s'annonce « Pepite/1.0 » : ces passages-là ne sont pas des lecteurs.
     """
+    if "pepite" in (agent or "").lower():
+        return
     with VERROU:
         j = _jour()
         _ETAT["jours"][j] = int(_ETAT["jours"].get(j) or 0) + 1
