@@ -1,17 +1,17 @@
 {
  "jour": "2026-10-10",
- "fabrique_le": "2026-10-10T03:13:13+00:00",
+ "fabrique_le": "2026-10-10T04:10:07+00:00",
  "matchs": [
   {
    "match": "Deportivo Pereira - Deportivo Cali",
    "message": "🏟️  **Deportivo Pereira**  🆚  **Deportivo Cali**\n   🇨🇴 Colombie · Primera A\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 73 % de chances\n\n🟢 DOUBLE CHANCE X2 (match nul ou Deportivo Cali gagne)\n     📈 74 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **0-1** · 14 %     **0-2** · 12 %     **1-1** · 11 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (12 matchs au minimum), pas sur un classement. Compétition : Primera A.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi.",
-   "coup_envoi": "2026-10-10T20:30+00:00",
+   "coup_envoi": null,
    "en_direct": false
   },
   {
    "match": "Junior - Internacional de Bogota",
    "message": "🏟️  **Junior FC**  🆚  **Internacional de Bogotá**\n   🇨🇴 Colombie · Primera A\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 78 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 11 %     **1-2** · 9 %     **2-1** · 8 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (9 matchs au minimum), pas sur un classement. Compétition : Primera A.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi.",
-   "coup_envoi": "2026-10-10T23:10+00:00",
+   "coup_envoi": null,
    "en_direct": false
   },
   {
@@ -42,6 +42,12 @@
    "match": "Tigre - Banfield",
    "message": "🏟️  **Tigre**  🆚  **Banfield**\n   🇦🇷 Argentine · Liga Profesional\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 75 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-0** · 16 %     **1-1** · 13 %     **0-0** · 12 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi.",
    "coup_envoi": null,
+   "en_direct": false
+  },
+  {
+   "match": "CF America - Monterrey",
+   "message": "🏟️  **CF America**  🆚  **Monterrey**\n   🇲🇽 Mexique · Liga MX\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 77 % de chances\n\n🟢 DOUBLE CHANCE 1X (CF America gagne ou match nul)\n     📈 70 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 11 %     **2-1** · 10 %     **1-0** · 9 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (8 matchs au minimum), pas sur un classement. Compétition : Liga MX.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-11T03:10+00:00",
    "en_direct": false
   }
  ],
