@@ -1,0 +1,396 @@
+{
+ "jour": "2026-10-10",
+ "fabrique_le": "2026-10-10T01:27:33+00:00",
+ "source": "bot de pronostics de José Ledanite (calcul sur téléphone, cotes Betclic CI)",
+ "matchs": [
+  {
+   "match": "Once Caldas - Llaneros FC",
+   "paris": [
+    {
+     "libelle": "UNDER 3,5",
+     "pourcent": 73.0,
+     "pastille": "🟢"
+    }
+   ],
+   "plaisir": [
+    {
+     "libelle": "VICTOIRE SÈCHE Once Caldas",
+     "pourcent": 38.2,
+     "pastille": null
+    },
+    {
+     "libelle": "VICTOIRE SÈCHE Llaneros FC",
+     "pourcent": 36.1,
+     "pastille": null
+    },
+    {
+     "libelle": "LES DEUX ÉQUIPES MARQUENT",
+     "pourcent": 51.2,
+     "pastille": null
+    }
+   ]
+  },
+  {
+   "match": "Deportivo Pereira - Deportivo Cali",
+   "paris": [
+    {
+     "libelle": "UNDER 3,5",
+     "pourcent": 73.0,
+     "pastille": "🟢"
+    },
+    {
+     "libelle": "DOUBLE CHANCE X2",
+     "pourcent": 74.0,
+     "pastille": "🟢"
+    }
+   ],
+   "plaisir": [
+    {
+     "libelle": "VICTOIRE SÈCHE Deportivo Pereira",
+     "pourcent": 25.1,
+     "pastille": null
+    },
+    {
+     "libelle": "VICTOIRE SÈCHE Deportivo Cali",
+     "pourcent": 47.7,
+     "pastille": null
+    },
+    {
+     "libelle": "LES DEUX ÉQUIPES MARQUENT",
+     "pourcent": 44.2,
+     "pastille": null
+    }
+   ]
+  },
+  {
+   "match": "Junior - Internacional de Bogota",
+   "paris": [
+    {
+     "libelle": "PLUS DE 1,5 BUT",
+     "pourcent": 78.0,
+     "pastille": "🟢"
+    }
+   ],
+   "plaisir": [
+    {
+     "libelle": "VICTOIRE SÈCHE Junior FC",
+     "pourcent": 33.9,
+     "pastille": null
+    },
+    {
+     "libelle": "VICTOIRE SÈCHE Internacional de Bogotá",
+     "pourcent": 41.0,
+     "pastille": null
+    },
+    {
+     "libelle": "LES DEUX ÉQUIPES MARQUENT",
+     "pourcent": 61.1,
+     "pastille": null
+    }
+   ]
+  },
+  {
+   "match": "Jaguares De Cordoba - Deportes Tolima",
+   "paris": [],
+   "plaisir": [
+    {
+     "libelle": "VICTOIRE SÈCHE CD Jaguares",
+     "pourcent": 29.6,
+     "pastille": null
+    },
+    {
+     "libelle": "VICTOIRE SÈCHE Tolima",
+     "pourcent": 44.8,
+     "pastille": null
+    },
+    {
+     "libelle": "LES DEUX ÉQUIPES MARQUENT",
+     "pourcent": 52.5,
+     "pastille": null
+    }
+   ]
+  },
+  {
+   "match": "Sporting Jax - Birmingham Legion",
+   "paris": [
+    {
+     "libelle": "PLUS DE 1,5 BUT",
+     "pourcent": 81.0,
+     "pastille": "🟢🟢"
+    },
+    {
+     "libelle": "DOUBLE CHANCE X2",
+     "pourcent": 74.0,
+     "pastille": "🟢"
+    }
+   ],
+   "plaisir": [
+    {
+     "libelle": "VICTOIRE SÈCHE Sporting JAX",
+     "pourcent": 25.7,
+     "pastille": null
+    },
+    {
+     "libelle": "VICTOIRE SÈCHE Birmingham Legion FC",
+     "pourcent": 47.4,
+     "pastille": null
+    },
+    {
+     "libelle": "LES DEUX ÉQUIPES MARQUENT",
+     "pourcent": 70.4,
+     "pastille": "🟢"
+    }
+   ]
+  },
+  {
+   "match": "Charleston Battery - Louisville City",
+   "paris": [
+    {
+     "libelle": "PLUS DE 1,5 BUT",
+     "pourcent": 79.0,
+     "pastille": "🟢"
+    }
+   ],
+   "plaisir": [
+    {
+     "libelle": "VICTOIRE SÈCHE Charleston Battery",
+     "pourcent": 41.4,
+     "pastille": null
+    },
+    {
+     "libelle": "VICTOIRE SÈCHE Louisville City FC",
+     "pourcent": 33.4,
+     "pastille": null
+    },
+    {
+     "libelle": "LES DEUX ÉQUIPES MARQUENT",
+     "pourcent": 61.4,
+     "pastille": null
+    }
+   ]
+  },
+  {
+   "match": "Miami - Loudoun Utd",
+   "paris": [],
+   "plaisir": [
+    {
+     "libelle": "VICTOIRE SÈCHE Miami FC",
+     "pourcent": 38.8,
+     "pastille": null
+    },
+    {
+     "libelle": "VICTOIRE SÈCHE Loudoun United FC",
+     "pourcent": 35.7,
+     "pastille": null
+    },
+    {
+     "libelle": "LES DEUX ÉQUIPES MARQUENT",
+     "pourcent": 60.7,
+     "pastille": null
+    }
+   ]
+  },
+  {
+   "match": "Detroit City FC - Rhode Island FC",
+   "paris": [
+    {
+     "libelle": "UNDER 3,5",
+     "pourcent": 75.0,
+     "pastille": "🟢"
+    }
+   ],
+   "plaisir": [
+    {
+     "libelle": "VICTOIRE SÈCHE Detroit City FC",
+     "pourcent": 37.0,
+     "pastille": null
+    },
+    {
+     "libelle": "VICTOIRE SÈCHE Rhode Island FC",
+     "pourcent": 36.8,
+     "pastille": null
+    },
+    {
+     "libelle": "LES DEUX ÉQUIPES MARQUENT",
+     "pourcent": 41.9,
+     "pastille": null
+    }
+   ]
+  },
+  {
+   "match": "Tlaxcala FC - Piratas",
+   "paris": [
+    {
+     "libelle": "PLUS DE 1,5 BUT",
+     "pourcent": 78.0,
+     "pastille": "🟢"
+    },
+    {
+     "libelle": "DOUBLE CHANCE X2",
+     "pourcent": 70.0,
+     "pastille": "🟢"
+    }
+   ],
+   "plaisir": [
+    {
+     "libelle": "VICTOIRE SÈCHE Tlaxcala FC",
+     "pourcent": 29.8,
+     "pastille": null
+    },
+    {
+     "libelle": "VICTOIRE SÈCHE Piratas",
+     "pourcent": 44.7,
+     "pastille": null
+    },
+    {
+     "libelle": "LES DEUX ÉQUIPES MARQUENT",
+     "pourcent": 60.8,
+     "pastille": null
+    }
+   ]
+  },
+  {
+   "match": "Barracas Central - CA Huracan",
+   "paris": [],
+   "plaisir": [
+    {
+     "libelle": "VICTOIRE SÈCHE Barracas Central",
+     "pourcent": 34.8,
+     "pastille": null
+    },
+    {
+     "libelle": "VICTOIRE SÈCHE Huracan",
+     "pourcent": 38.1,
+     "pastille": null
+    },
+    {
+     "libelle": "LES DEUX ÉQUIPES MARQUENT",
+     "pourcent": 35.5,
+     "pastille": null
+    }
+   ]
+  },
+  {
+   "match": "Central Córdoba - Estudiantes de La Plata",
+   "paris": [],
+   "plaisir": [
+    {
+     "libelle": "VICTOIRE SÈCHE Barracas Central",
+     "pourcent": 34.8,
+     "pastille": null
+    },
+    {
+     "libelle": "VICTOIRE SÈCHE Huracan",
+     "pourcent": 38.1,
+     "pastille": null
+    },
+    {
+     "libelle": "LES DEUX ÉQUIPES MARQUENT",
+     "pourcent": 35.5,
+     "pastille": null
+    }
+   ]
+  },
+  {
+   "match": "Tigre - Banfield",
+   "paris": [
+    {
+     "libelle": "UNDER 3,5",
+     "pourcent": 75.0,
+     "pastille": "🟢"
+    }
+   ],
+   "plaisir": [
+    {
+     "libelle": "VICTOIRE SÈCHE Tigre",
+     "pourcent": 42.5,
+     "pastille": null
+    },
+    {
+     "libelle": "VICTOIRE SÈCHE Banfield",
+     "pourcent": 30.8,
+     "pastille": null
+    },
+    {
+     "libelle": "LES DEUX ÉQUIPES MARQUENT",
+     "pourcent": 40.5,
+     "pastille": null
+    }
+   ]
+  },
+  {
+   "match": "River Plate - Estudiantes Rio Cuarto",
+   "paris": [],
+   "plaisir": [
+    {
+     "libelle": "VICTOIRE SÈCHE River Plate",
+     "pourcent": 44.9,
+     "pastille": null
+    },
+    {
+     "libelle": "VICTOIRE SÈCHE Estudiantes de Río Cuarto",
+     "pourcent": 29.0,
+     "pastille": null
+    },
+    {
+     "libelle": "LES DEUX ÉQUIPES MARQUENT",
+     "pourcent": 41.7,
+     "pastille": null
+    }
+   ]
+  }
+ ],
+ "montante": {
+  "mode": "brouillon",
+  "jour": "2026-10-10",
+  "pool": [
+   {
+    "match": "Real Madrid - Villarreal",
+    "competition": "espagne laliga",
+    "libelle": "Real Madrid ou Nul",
+    "cote": 1.1,
+    "favori": "Real Madrid",
+    "cotes": {
+     "1": 1.35,
+     "X": 5.6,
+     "2": 6.4
+    },
+    "coup_envoi": "2026-10-10T19:00+00:00",
+    "en_direct": false,
+    "risques": []
+   },
+   {
+    "match": "San Giovanni - Tre Fiori",
+    "competition": "san marin campionato",
+    "libelle": null,
+    "cote": 1.12,
+    "favori": "Tre Fiori",
+    "cotes": {
+     "1": 14.0,
+     "X": 5.75,
+     "2": 1.12
+    },
+    "coup_envoi": "2026-10-10T13:00+00:00",
+    "en_direct": false,
+    "risques": []
+   },
+   {
+    "match": "Mexique F. - Jamaïque F.",
+    "competition": "matchs amicaux f",
+    "libelle": null,
+    "cote": 1.123,
+    "favori": "Mexique F.",
+    "cotes": {
+     "1": 1.04,
+     "X": 12.5,
+     "2": 24.0
+    },
+    "coup_envoi": null,
+    "en_direct": false,
+    "risques": [
+     "match amical"
+    ]
+   }
+  ]
+ }
+}
