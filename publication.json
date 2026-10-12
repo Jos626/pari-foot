@@ -1,6 +1,6 @@
 {
  "jour": "2026-10-12",
- "fabrique_le": "2026-10-12T18:01:27+00:00",
+ "fabrique_le": "2026-10-12T19:04:00+00:00",
  "matchs": [
   {
    "match": "Racing de Cordoba - Los Andes",
@@ -23,19 +23,13 @@
   {
    "match": "HFX Wanderers FC - Cavalry FC",
    "message": "🏟️  **HFX Wanderers FC**  🆚  **Cavalry FC**\n   🇨🇦 Canada · Premier League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 80 % de chances\n\n🟢 DOUBLE CHANCE X2 (match nul ou Cavalry FC gagne)\n     📈 70 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 9 %     **1-2** · 9 %     **2-1** · 7 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (16 matchs au minimum), pas sur un classement. Compétition : Premier League.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
-   "coup_envoi": "2026-10-12T20:00+00:00",
+   "coup_envoi": null,
    "en_direct": false
   },
   {
    "match": "Universidad de Chile - Nublense",
    "message": "🏟️  **Universidad de Chile**  🆚  **Ñublense**\n   🇨🇱 Chili · Primera División\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 72 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 12 %     **1-0** · 10 %     **2-1** · 9 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (19 matchs au minimum), pas sur un classement. Compétition : Primera División.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
    "coup_envoi": null,
-   "en_direct": false
-  },
-  {
-   "match": "Al-Nassr - Neftchi Fargona",
-   "message": "🏟️  **Al Nassr FC**  🆚  **Neftchi Fargona**\n   🌍 International · Champions League Elite West\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 80 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 9 %     **2-1** · 8 %     **1-2** · 8 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (9 matchs au minimum), pas sur un classement. Compétition : AFC Champions League Elite West.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
-   "coup_envoi": "2026-10-12T18:15+00:00",
    "en_direct": false
   },
   {
@@ -46,14 +40,8 @@
   },
   {
    "match": "AC Oulu - HJK Helsinki",
-   "message": "🏟️  **AC Oulu**  🆚  **HJK Helsinki**\n   🇫🇮 Finlande · Veikkausliiga\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 72 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 12 %     **0-1** · 10 %     **1-2** · 9 %\n\nℹ️ Analyse basée sur le classement Elo (clubs), pas sur le détail des matchs.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "message": "🏟️  **AC Oulu**  🆚  **HJK Helsinki**\n   🇫🇮 Finlande · Veikkausliiga Championship Group\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 72 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 12 %     **0-1** · 10 %     **1-2** · 9 %\n\nℹ️ Analyse basée sur le classement Elo (clubs), pas sur le détail des matchs.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
    "coup_envoi": null,
-   "en_direct": true
-  },
-  {
-   "match": "Torino - Udinese",
-   "message": "🏟️  **Torino**  🆚  **Udinese**\n   🇮🇹 Italie · Serie A\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 80 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 9 %     **2-1** · 9 %     **1-2** · 7 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
-   "coup_envoi": "2026-10-12T18:45+00:00",
    "en_direct": false
   }
  ],
@@ -62,26 +50,10 @@
   "jour": "2026-10-12",
   "pool": [
    {
-    "match": "Maroc F. - Ouzbékistan F.",
-    "competition": "matchs amicaux f",
-    "libelle": "Victoire de Maroc F.",
-    "cote": 1.17,
-    "coup_envoi": "2026-10-12T18:00+00:00",
-    "en_direct": false
-   },
-   {
-    "match": "Pyunik Yerevan - BKMA Yerevan",
-    "competition": "armenie division 1",
-    "libelle": "Victoire de Pyunik Yerevan",
-    "cote": 1.18,
-    "coup_envoi": "2026-10-12T15:00+00:00",
-    "en_direct": false
-   },
-   {
     "match": "Al-Nassr - Neftchi Fargona",
     "competition": "ligue des champions asiatique",
     "libelle": "Victoire de Al-Nassr",
-    "cote": 1.22,
+    "cote": 1.18,
     "coup_envoi": "2026-10-12T18:15+00:00",
     "en_direct": false
    }
