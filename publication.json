@@ -1,6 +1,6 @@
 {
  "jour": "2026-10-12",
- "fabrique_le": "2026-10-12T02:29:13+00:00",
+ "fabrique_le": "2026-10-12T03:30:31+00:00",
  "matchs": [
   {
    "match": "Racing de Cordoba - Los Andes",
@@ -36,6 +36,12 @@
    "match": "Universidad de Chile - Nublense",
    "message": "🏟️  **Universidad de Chile**  🆚  **Ñublense**\n   🇨🇱 Chili · Primera División\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 72 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 12 %     **1-0** · 10 %     **2-1** · 9 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (19 matchs au minimum), pas sur un classement. Compétition : Primera División.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
    "coup_envoi": null,
+   "en_direct": false
+  },
+  {
+   "match": "Mes Kerman - Mes Rafsanjan FC",
+   "message": "🏟️  **Mes Kerman**  🆚  **Mes Rafsanjan**\n   Azadegan League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 75 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-0** · 20 %     **0-0** · 19 %     **1-1** · 12 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (11 matchs au minimum), pas sur un classement. Compétition : Azadegan League.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-12T11:30+00:00",
    "en_direct": false
   }
  ],
