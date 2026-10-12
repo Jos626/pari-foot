@@ -1,6 +1,6 @@
 {
  "jour": "2026-10-12",
- "fabrique_le": "2026-10-12T13:49:37+00:00",
+ "fabrique_le": "2026-10-12T14:52:56+00:00",
  "matchs": [
   {
    "match": "Racing de Cordoba - Los Andes",
@@ -37,6 +37,24 @@
    "message": "🏟️  **Universidad de Chile**  🆚  **Ñublense**\n   🇨🇱 Chili · Primera División\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 72 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 12 %     **1-0** · 10 %     **2-1** · 9 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (19 matchs au minimum), pas sur un classement. Compétition : Primera División.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
    "coup_envoi": null,
    "en_direct": false
+  },
+  {
+   "match": "Al Wasl - Al-Ahli",
+   "message": "🏟️  **Al Wasl**  🆚  **Al Ahli**\n   🌍 International · Champions League Elite West\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 81 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n🎲 **Les paris fun** (pour construire tes combinés, si tu le souhaites)\n     🟢 LES DEUX ÉQUIPES MARQUENT · 70 %\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 9 %     **2-1** · 8 %     **1-2** · 8 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (14 matchs au minimum), pas sur un classement. Compétition : AFC Champions League Elite West.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-12T16:00+00:00",
+   "en_direct": false
+  },
+  {
+   "match": "Al-Nassr - Neftchi Fargona",
+   "message": "🏟️  **Al Nassr FC**  🆚  **Neftchi Fargona**\n   🌍 International · Champions League Elite West\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 80 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 9 %     **2-1** · 8 %     **1-2** · 8 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (9 matchs au minimum), pas sur un classement. Compétition : AFC Champions League Elite West.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-12T18:15+00:00",
+   "en_direct": false
+  },
+  {
+   "match": "Pyramids - Ceramica Cleopatra",
+   "message": "🏟️  **Pyramids FC**  🆚  **Ceramica Cleopatra**\n   🇪🇬 Égypte · Premier League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 72 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 12 %     **1-0** · 11 %     **2-1** · 9 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (25 matchs au minimum), pas sur un classement. Compétition : Premier League.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-12T17:00+00:00",
+   "en_direct": false
   }
  ],
  "montante": {
@@ -44,34 +62,26 @@
   "jour": "2026-10-12",
   "pool": [
    {
-    "match": "KF Bashkimi - Struga Trim-Lum",
-    "competition": "macedoine du nord 1 mfl",
-    "libelle": "Victoire de Struga Trim-Lum",
-    "cote": 1.14,
-    "coup_envoi": "2026-10-12T13:00+00:00",
+    "match": "Maroc F. - Ouzbékistan F.",
+    "competition": "matchs amicaux f",
+    "libelle": "Victoire de Maroc F.",
+    "cote": 1.17,
+    "coup_envoi": "2026-10-12T18:00+00:00",
     "en_direct": false
    },
    {
     "match": "Pyunik Yerevan - BKMA Yerevan",
     "competition": "armenie division 1",
     "libelle": "Victoire de Pyunik Yerevan",
-    "cote": 1.16,
+    "cote": 1.18,
     "coup_envoi": "2026-10-12T15:00+00:00",
-    "en_direct": false
-   },
-   {
-    "match": "Maroc F. - Ouzbékistan F.",
-    "competition": "matchs amicaux f",
-    "libelle": "Victoire de Maroc F.",
-    "cote": 1.16,
-    "coup_envoi": "2026-10-12T18:00+00:00",
     "en_direct": false
    },
    {
     "match": "Al-Nassr - Neftchi Fargona",
     "competition": "ligue des champions asiatique",
     "libelle": "Victoire de Al-Nassr",
-    "cote": 1.21,
+    "cote": 1.22,
     "coup_envoi": "2026-10-12T18:15+00:00",
     "en_direct": false
    }
