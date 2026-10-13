@@ -1,10 +1,27 @@
 {
  "jour": "2026-10-13",
- "fabrique_le": "2026-10-13T17:31:03+00:00",
+ "fabrique_le": "2026-10-13T18:32:42+00:00",
  "matchs": [],
  "montante": {
   "mode": "jour",
   "jour": "2026-10-13",
-  "pool": []
+  "pool": [
+   {
+    "match": "Brésil F. - Argentina F.",
+    "competition": "matchs amicaux f",
+    "libelle": "Victoire de Brésil F.",
+    "cote": 1.18,
+    "coup_envoi": "2026-10-13T23:30+00:00",
+    "en_direct": false
+   },
+   {
+    "match": "Arsenal - Lille",
+    "competition": "ligue des champions",
+    "libelle": "Victoire de Arsenal",
+    "cote": 1.19,
+    "coup_envoi": "2026-10-13T19:00+00:00",
+    "en_direct": false
+   }
+  ]
  }
 }
