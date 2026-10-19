@@ -315,6 +315,65 @@ def _date_fr(texte):
     return (texte or "").strip() or "—"
 
 
+POPUP_CSS = r'''.pf-popup{position:fixed;inset:0;background:rgba(20,18,14,.55);display:flex;align-items:center;justify-content:center;padding:18px;z-index:99}
+.pf-popup[hidden]{display:none}
+.pf-boite{background:#fffdf8;border-radius:16px;max-width:380px;width:100%;padding:22px 20px 18px;position:relative;box-shadow:0 18px 50px rgba(0,0,0,.25);text-align:center}
+.pf-boite img{width:100%;height:120px;object-fit:cover;border-radius:10px;margin-bottom:14px}
+.pf-boite h3{margin:0 0 8px;font-size:1.25rem;line-height:1.25}
+.pf-texte{margin:0 0 14px;font-size:.95rem;color:#5a5348}
+.pf-form{display:flex;flex-direction:column;gap:8px}
+.pf-form input{padding:12px 14px;border:1px solid #d9d2c4;border-radius:10px;font-size:1rem;background:#fff}
+.pf-form button{padding:13px 16px;border:0;border-radius:10px;background:#14120e;color:#fff;font-size:1rem;font-weight:600;cursor:pointer}
+.pf-fermer{position:absolute;top:8px;right:10px;border:0;background:transparent;font-size:1.6rem;line-height:1;cursor:pointer;color:#7a7264}
+.pf-non{display:block;width:100%;margin-top:12px;border:0;background:transparent;color:#8a8272;font-size:.85rem;text-decoration:underline;cursor:pointer}
+'''
+
+
+POPUP_HTML = r'''<!-- ⛔ POPUP DE CAPTURE (19/10/2026, demande de José) : le formulaire en bas d'article ne parlait
+     pas — trop loin, jamais vu. Il apparaît maintenant après 18 s de lecture (ou 55 % de la page),
+     une seule fois par visiteur et par jour, et se ferme librement. Un popup qu'on ne peut pas
+     fermer fait fuir ; un popup qu'on ferme soi-même se retient. -->
+<div id="pf-popup" class="pf-popup" hidden>
+  <div class="pf-boite" role="dialog" aria-modal="true" aria-labelledby="pf-titre">
+    <button type="button" class="pf-fermer" aria-label="Fermer">×</button>
+    <img src="/img/p6.jpg" alt="" width="360" height="120">
+    <h3 id="pf-titre">Mes pronostics du jour, par email</h3>
+    <p class="pf-texte">Chaque matin : mes analyses, la montante, et le guide du parieur débutant
+    tout de suite. Gratuit, désinscription en un clic.</p>
+    <form action="/abonner" method="POST" class="pf-form">
+                      <input type="email" name="email" required placeholder="ton@email.com" aria-label="Ton adresse email">
+      <button type="submit">Recevoir les pronostics</button>
+    </form>
+    <button type="button" class="pf-non">Non merci, je continue ma lecture</button>
+  </div>
+</div>
+<script>
+(function () {
+  try { if (localStorage.getItem("pf_popup") === new Date().toDateString()) return; } catch (e) {}
+  if (location.pathname.indexOf("/livre-blanc") === 0) return;
+  var boite = document.getElementById("pf-popup");
+  if (!boite) return;
+  var montre = false;
+  function afficher() {
+    if (montre) return;
+    montre = true;
+    boite.hidden = false;
+    try { localStorage.setItem("pf_popup", new Date().toDateString()); } catch (e) {}
+  }
+  function fermer() { boite.hidden = true; }
+  boite.querySelector(".pf-fermer").addEventListener("click", fermer);
+  boite.querySelector(".pf-non").addEventListener("click", fermer);
+  boite.addEventListener("click", function (e) { if (e.target === boite) fermer(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") fermer(); });
+  setTimeout(afficher, 18000);
+  window.addEventListener("scroll", function () {
+    var h = document.documentElement;
+    if ((h.scrollTop + window.innerHeight) / h.scrollHeight > 0.55) afficher();
+  }, { passive: true });
+})();
+</script>'''
+
+
 def _page(titre, contenu, actif, titre_onglet=None, description=None):
     """La coquille du blog : en-tête collant, contenu, pied. Un seul <title> par page."""
     titre_final = titre_onglet or "Pari Foot — pronostics et guides de paris sportifs"
@@ -323,7 +382,7 @@ def _page(titre, contenu, actif, titre_onglet=None, description=None):
     def lien(cle, libelle, adresse):
         return f'<a class="{"actif" if actif == cle else ""}" href="{adresse}">{libelle}</a>'
     onglets = (lien("jour", "Aujourd’hui", "/") + lien("guides", "Guides", "/guides")
-               + lien("montante", "La montante", "/montante"))
+               )
     return f"""<!doctype html><html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="google-site-verification" content="h5XzcBysNSdxCMwQ0ksBW0wg9kprPAmrjHKjOFjkJls" />
@@ -333,7 +392,9 @@ def _page(titre, contenu, actif, titre_onglet=None, description=None):
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="apple-touch-icon" href="/icone-apple-180.png">
 <link rel="icon" type="image/png" href="/icone-192.png">
-<style>{STYLE}</style></head><body>
+<style>{STYLE}
+{POPUP_CSS}
+</style></head><body>
 <header class="site"><div class="wrap">
 <a class="marque" href="/">Pari<span>Foot</span></a>
 <nav>{onglets}</nav>
@@ -343,35 +404,46 @@ def _page(titre, contenu, actif, titre_onglet=None, description=None):
 <p><b>Pari Foot</b> — les pronostics du jour et des guides honnêtes sur les paris sportifs.</p>
 <p>Écrit par José Ledanite · <a href="/sitemap.xml">Plan du site</a></p>
 </div></footer>
-</body></html>"""
+
+{POPUP_HTML}</body></html>"""
 
 
 def page_jour():
-    """Les analyses du jour. ⛔ Si elles datent d'hier, on ne fait pas semblant : afficher de
-    vieux pronostics comme s'ils étaient du jour, c'est le meilleur moyen de perdre la confiance
-    du lecteur — et la sienne."""
-    p = lire_publication() or {}
-    matchs = p.get("matchs") or []
-    jour = p.get("jour") or ""
-    aujourd = time.strftime("%Y-%m-%d")
-    if matchs and jour and jour != aujourd:
-        corps = ('<div class="article" style="margin-top:26px"><h1>Mes pronostics arrivent par email</h1>'
-                 '<p class="chapeau">Les analyses ne sont plus publiées ici : elles partent chaque '
-                 'matin dans la boîte des abonnés, avec la montante. C’est gratuit, et tu peux te '
-                 'désinscrire en un clic.</p>'
-                 + FORMULAIRE +
-                 f'<p class="aide" style="margin-top:22px">Dernière analyse publiée : {html.escape(jour)}. '
-                 'Les guides restent ouverts : <a href="/guides/">cotes, mise, bonus</a>.</p></div>')
-    elif not matchs:
-        corps = ('<div class="article" style="margin-top:26px"><h1>Mes pronostics arrivent par email</h1>'
-                 '<p class="chapeau">Les analyses ne sont plus publiées ici : elles partent chaque '
-                 'matin dans la boîte des abonnés. C’est gratuit, et tu peux te désinscrire en un clic.</p>'
-                 + FORMULAIRE +
-                 '<p class="aide" style="margin-top:22px">En attendant, les guides restent ouverts : '
-                 '<a href="/guides/">cotes, mise, bonus</a>.</p></div>')
-    else:
-        corps = "".join(_carte_message(m) for m in matchs)
-    return _page("Aujourd'hui", corps, "jour")
+    """Accueil éditorial. ⛔ PLUS AUCUN MATCH ICI (19/10/2026, demande de José) : les pronostics
+    partent par email, le site ne montre que du contenu qui amène du trafic et l'inscription.
+    Un match affiché en vitrine obligeait à le rafraîchir chaque matin — et un jour raté faisait
+    passer tout le site pour périmé."""
+    recents = list(articles.ARTICLES.items())[:6]
+    cartes = []
+    for slug, a in recents:
+        cartes.append(
+            f'<a class="carte" href="/guides/{slug}/">'
+            f'<div class="vignette"><img src="{_image(slug)}" alt="" loading="lazy" width="264" height="192"></div>'
+            f'<div class="carte-corps"><span class="etiquette">{html.escape(a.get("etiquette") or "GUIDE")}</span>'
+            f'<h3>{html.escape(a.get("h1") or a.get("titre") or slug)}</h3>'
+            f'<p>{html.escape((a.get("chapeau") or "")[:150])}</p></div></a>')
+
+    corps = (
+        '<section class="hero-texte">'
+        '<h1>Parie mieux. Pas plus.</h1>'
+        '<p class="chapeau">Des guides clairs pour les parieurs ivoiriens : comprendre une cote, '
+        'tenir une bankroll, repérer un opérateur sérieux. Et mes pronostics du jour, envoyés par '
+        'email chaque matin.</p>'
+        '<p><a class="bouton" href="/guides/">Lire les guides</a></p>'
+        '</section>'
+        + FORMULAIRE +
+        '<h2 class="section-titre">Les derniers guides</h2>'
+        f'<div class="grille">{"".join(cartes)}</div>'
+        '<div class="encart" style="border-color:#d9a900;background:#fffaf0;margin-top:26px">'
+        '<img src="/img/p3.jpg" alt="" width="56" height="56">'
+        '<div><b>Le guide du parieur débutant — gratuit</b>'
+        '<p>Six sections pour ne pas griller sa bankroll en trois jours. '
+        '<a href="/livre-blanc/"><b>Recevoir le guide</b></a>.</p></div></div>'
+    )
+    return _page("Pari Foot", corps, "jour",
+                 titre_onglet="Pari Foot — guides de paris sportifs et pronostics par email",
+                 description="Guides de paris sportifs pour la Côte d'Ivoire : cotes, bankroll, "
+                             "opérateurs fiables. Pronostics quotidiens par email, gratuit.")
 
 
 def page_montante():
@@ -454,11 +526,7 @@ def page_article(slug):
 # José → Pépite lit et envoie la séquence), mais le sujet porte « Pari Foot » : c'est ce qui
 # permet à l'autorépondeur de choisir la séquence paris et non la séquence VPN.
 FORMULAIRE = """
-<form class="capture" action="https://formsubmit.co/chrismotivation21@gmail.com" method="POST">
-  <input type="hidden" name="_subject" value="Nouvelle inscription — Pari Foot">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_next" value="https://pari-foot.onrender.com/livre-blanc/merci/">
+<form class="capture" action="/abonner" method="POST">
   <input type="email" name="email" required placeholder="ton@email.com" aria-label="Ton adresse email">
   <button type="submit">Recevoir les pronostics</button>
 </form>
@@ -550,11 +618,39 @@ def page_merci():
     return _page("C'est envoyé", corps, "guides", titre_onglet="Guide envoyé — Pari Foot")
 
 
+def _abonner(email_client):
+    """Inscrit un lecteur : le site envoie lui-même l'email à José, sans service tiers.
+
+    ⛔ POURQUOI PAS FORMSUBMIT (19/10/2026) : leurs liens d'activation pour un nouveau domaine
+    répondent 500 et leurs envois exigent une confirmation que José n'a jamais reçue — résultat,
+    zéro inscription enregistrée alors que le formulaire semblait fonctionner. Un formulaire qui
+    ne dit rien est pire que pas de formulaire : le lecteur croit s'être inscrit.
+    Ici, le serveur envoie directement par SMTP (variables GMAIL_USER / GMAIL_PASS sur Render),
+    avec le même sujet que Pépite attend pour ranger l'abonné dans la bonne séquence.
+    """
+    import smtplib
+    from email.message import EmailMessage
+    utilisateur = os.environ.get("GMAIL_USER")
+    motdepasse = os.environ.get("GMAIL_PASS")
+    if not (utilisateur and motdepasse):
+        return False
+    msg = EmailMessage()
+    msg["From"] = utilisateur
+    msg["To"] = utilisateur
+    msg["Subject"] = "Nouvelle inscription — Pari Foot"
+    msg.set_content(f"Nouvel inscrit au site Pari Foot : {email_client}\n\n"
+                    f"Recu le {time.strftime('%d/%m/%Y a %H:%M')} (UTC).")
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as s:
+        s.login(utilisateur, motdepasse)
+        s.send_message(msg)
+    return True
+
+
 def sitemap():
     """LA CARTE DU SITE — indispensable : sans elle, Google met des semaines à trouver les guides.
     Le domaine est celui du déploiement ; si José change d'adresse, cette ligne suit."""
     base = os.environ.get("URL_PUBLIQUE", "https://pari-foot.onrender.com").rstrip("/")
-    pages = ["/", "/montante", "/guides", "/livre-blanc"] + [f"/guides/{s}" for s in articles.ARTICLES]
+    pages = ["/", "/guides", "/livre-blanc"] + [f"/guides/{s}" for s in articles.ARTICLES]
     urls = "".join(f"<url><loc>{base}{p}</loc></url>" for p in pages)
     return ('<?xml version="1.0" encoding="UTF-8"?>'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + urls + "</urlset>")
@@ -634,11 +730,29 @@ def fabriquer_serveur(port=8080):
                 self._envoyer(page_jour(), "text/html; charset=utf-8")
                 return
             if chemin in ("/montante", "/montante/"):
-                self._envoyer(page_montante(), "text/html; charset=utf-8")
+                # ⛔ PAGE SUPPRIMÉE (19/10/2026, demande de José) : la montante part dans l'email.
+                # L'ancienne URL redirige vers les guides plutôt que d'afficher un fantôme.
+                self.send_response(301)
+                self.send_header("Location", "/guides/")
+                self.end_headers()
                 return
             # ── LES GUIDES (le contenu qui se référence). José, 10/10/2026 : « on va passer au SEO
             # de pari foot ». Sans ces pages, il n'y a rien à référencer : une application sans
             # texte ne se classe pas sur Google.
+            if chemin in ("/abonner", "/abonner/"):
+                longueur = int(self.headers.get("Content-Length") or 0)
+                donnees = self.rfile.read(longueur).decode("utf-8", "ignore")
+                params = urllib.parse.parse_qs(donnees)
+                courriel = (params.get("email") or [""])[0].strip()
+                if "@" in courriel and "." in courriel.split("@")[-1]:
+                    try:
+                        _abonner(courriel)
+                    except Exception as e:      # noqa: BLE001 — on ne casse pas la page
+                        print("inscription : envoi impossible —", type(e).__name__, e, flush=True)
+                self.send_response(303)
+                self.send_header("Location", "/livre-blanc/merci/")
+                self.end_headers()
+                return
             if chemin in ("/livre-blanc/merci", "/livre-blanc/merci/"):
                 self._envoyer(page_merci(), "text/html; charset=utf-8")
                 return
