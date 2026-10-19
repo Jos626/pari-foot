@@ -143,6 +143,9 @@ def main():
                      "cote": v.get("cote"),
                      "coup_envoi": v.get("coup_envoi"), "en_direct": bool(v.get("en_direct"))})
 
+    # même règle côté site : la montante se lit dans l'ordre des coups d'envoi
+    pool.sort(key=lambda v: (v.get("coup_envoi") or "9999"))
+
     publication = {
         "jour": jour,
         "fabrique_le": datetime.now(timezone.utc).isoformat(timespec="seconds"),
