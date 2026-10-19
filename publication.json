@@ -1,6 +1,6 @@
 {
  "jour": "2026-10-19",
- "fabrique_le": "2026-10-19T15:19:06+00:00",
+ "fabrique_le": "2026-10-19T15:21:27+00:00",
  "matchs": [
   {
    "match": "Al-Shabab - Al Faisaly FC",
@@ -20,19 +20,19 @@
   "jour": "2026-10-19",
   "pool": [
    {
-    "match": "Dinamo Minsk - Arsenal Dzerzhinsk",
-    "competition": "bielorussie vysshaya liga",
-    "libelle": "Victoire de Dinamo Minsk",
-    "cote": 1.19,
-    "coup_envoi": "2026-10-19T17:00+00:00",
-    "en_direct": false
-   },
-   {
     "match": "Omonia Nicosie - Olympiakos Nicosie",
     "competition": "chypre division 1",
     "libelle": "Victoire de Omonia Nicosie",
     "cote": 1.19,
     "coup_envoi": "2026-10-19T16:00+00:00",
+    "en_direct": false
+   },
+   {
+    "match": "Dinamo Minsk - Arsenal Dzerzhinsk",
+    "competition": "bielorussie vysshaya liga",
+    "libelle": "Victoire de Dinamo Minsk",
+    "cote": 1.19,
+    "coup_envoi": "2026-10-19T17:00+00:00",
     "en_direct": false
    }
   ]

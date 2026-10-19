@@ -75,6 +75,18 @@ def horaires():
 
 
 def main():
+    # ⛔ UN SEUL ÉCRIVAIN À LA FOIS (19/10/2026). Deux fabrications lancées à quelques minutes
+    # d'intervalle se sont écrasées l'une l'autre : la plus ancienne, terminée en dernier, a
+    # réécrit publication.json avec les matchs non vérifiés que la nouvelle venait d'écarter.
+    # Le verrou rend ce scénario impossible : la seconde abandonne au lieu de piétiner.
+    import fcntl
+    verrou = open(os.path.join(ICI, ".publication.lock"), "w")
+    try:
+        fcntl.flock(verrou, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        print("Une fabrication est déjà en cours — celle-ci s'arrête sans rien écrire.", flush=True)
+        return 3
+
     import moteur                  # importé ici pour que le dossier courant soit déjà le bon
 
     analyses = lire("analyses-du-jour.json", {"jour": None, "matchs": {}})
