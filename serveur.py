@@ -426,15 +426,122 @@ def page_article(slug):
              f'{_temps_lecture(a["corps"])} min de lecture</span></div>'
              f'<div class="hero"><img src="{_image(slug)}" alt="{html.escape(titre)}" width="1200" height="675"></div>'
              f'{a["corps"]}'
+             f'<div class="encart" style="border-color:#d9a900;background:#fffaf0">'
+             f'<img src="/img/auteur.jpg" alt="" width="56" height="56">'
+             f'<div><b>📘 Le parieur débutant — gratuit</b>'
+             f'<p>Six sections pour ne pas griller sa bankroll en trois jours. '
+             f'<a href="/livre-blanc/"><b>Recevoir le guide</b></a> — par email, sans spam.</p></div></div>'
+             f'{FORMULAIRE}'
              f'<div class="partage"><span>Partager</span>{partage}</div></div>')
     return _page(a["h1"], corps, "guides", titre_onglet=_maj(titre), description=a["description"])
+
+
+# ⛔ LE FORMULAIRE DE CAPTURE DU SITE FOOT. Même chaîne que Guide VPN (FormSubmit → boîte de
+# José → Pépite lit et envoie la séquence), mais le sujet porte « Pari Foot » : c'est ce qui
+# permet à l'autorépondeur de choisir la séquence paris et non la séquence VPN.
+FORMULAIRE = """
+<form class="capture" action="https://formsubmit.co/chrismotivation21@gmail.com" method="POST">
+  <input type="hidden" name="_subject" value="Nouvelle inscription — Pari Foot">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://pari-foot.onrender.com/livre-blanc/merci/">
+  <input type="email" name="email" required placeholder="ton@email.com" aria-label="Ton adresse email">
+  <button type="submit">Recevoir le guide</button>
+</form>
+<p class="capture-note">Le guide arrive tout de suite. Ensuite, un email utile de temps en temps —
+jamais de spam, désinscription en un clic.</p>
+"""
+
+COUVERTURE = """
+<div class="ebook"><div class="livre">
+  <div class="haut"><small>Guide gratuit · édition 2026</small>
+    <h3>Le parieur<br>débutant</h3></div>
+  <div class="bas">Cotes · Mise · Erreurs à éviter<br>José Ledanite</div>
+</div></div>
+"""
+
+LIVRE_BLANC = """
+<h2>1. Une cote n'est pas une probabilité</h2>
+<p>Une cote de 1,20 ne veut pas dire « sûr ». Elle dit ceci : le bookmaker estime l'événement
+probable à un peu plus de 80 %, et il garde une marge au passage. Sur dix paris de ce type, tu en
+perdras un ou deux — et c'est précisément ce qui efface les gains des neuf autres.</p>
+<p>La bonne lecture : plus la cote est basse, plus la marge du bookmaker pèse lourd. C'est
+mathématique, pas une opinion.</p>
+
+<h2>2. La mise compte plus que le choix du match</h2>
+<p>Deux parieurs peuvent choisir exactement les mêmes matchs : l'un finit ruiné, l'autre non.
+La différence, c'est la taille des mises.</p>
+<ul>
+<li>Ne mise jamais plus de <b>2 à 3 % de ta bankroll</b> sur un pari, quelle que soit ta confiance.</li>
+<li>Ta bankroll, c'est l'argent que tu acceptes de perdre entièrement — pas ton budget du mois.</li>
+<li>Après une perte, la mise suivante ne change pas. « Se refaire » est le mécanisme qui vide
+les comptes.</li>
+</ul>
+
+<h2>3. Les trois paris qui coûtent le plus cher</h2>
+<ul>
+<li><b>Le combiné à cinq sélections</b> — les cotes se multiplient, les probabilités aussi, mais
+dans l'autre sens. Cinq favoris à 80 % de chances chacun, c'est une chance sur trois que tout passe.</li>
+<li><b>Le pari « sûr » sur ton équipe</b> — tu ne paries pas avec ton cœur, tu paries avec une cote.</li>
+<li><b>Le pari en direct après un but</b> — la cote a déjà bougé, et l'émotion décide à ta place.</li>
+</ul>
+
+<h2>4. Vérifier un opérateur avant de déposer</h2>
+<p>Trois questions, deux minutes :</p>
+<ul>
+<li>Est-il <b>agréé en Côte d'Ivoire</b> ? Depuis 2024, seuls LONACI et ses partenaires publiés ont
+le droit d'opérer légalement.</li>
+<li>Les <b>retraits</b> passent-ils par Mobile Money, et en combien de temps ?</li>
+<li>Les <b>conditions du bonus</b> : mise exigée, cote minimale, délai. Un bonus sans ces
+précisions n'est pas un bonus.</li>
+</ul>
+
+<h2>5. Le bonus : lire les conditions, pas le pourcentage</h2>
+<p>Un « 400 % » signifie presque toujours : 100 % sur chacun de tes quatre premiers dépôts, avec
+une exigence de mise élevée et un délai court. La question utile n'est pas « combien ? » mais
+« combien de fois dois-je miser avant de pouvoir retirer ? ».</p>
+<p>Compare toujours trois lignes : l'exigence de mise, la cote minimale acceptée, et la durée de
+validité. Les montants exacts changent — vérifie-les dans les conditions en vigueur le jour où tu
+t'inscris.</p>
+
+<h2>6. La règle qui résume tout</h2>
+<p>Le pari sportif n'est pas un revenu : c'est un divertissement avec un coût. Celui qui gagne sur
+la durée ne parie pas plus, il parie mieux — et il accepte de ne pas parier du tout certains jours.</p>
+<p><small>Jeu responsable · interdit aux mineurs · joue seulement ce que tu peux perdre.</small></p>
+"""
+
+
+def page_livre_blanc():
+    corps = ('<div class="article" style="margin-top:26px">'
+             '<p class="fil"><a href="/">Accueil</a> › Guide gratuit</p>'
+             '<h1>Le parieur débutant</h1>'
+             '<p class="chapeau">Cotes, mise, erreurs qui coûtent cher : ce que j\'aurais aimé lire '
+             'avant mon premier pari.</p>'
+             + COUVERTURE + FORMULAIRE +
+             '<div class="entete-meta"><img src="/img/auteur.jpg" alt="José Ledanite" width="34" height="34">'
+             '<span><b>José Ledanite</b> · édition 2026 · 8 min de lecture</span></div>'
+             + LIVRE_BLANC +
+             '</div>')
+    return _page("Le parieur débutant", corps, "guides",
+                 titre_onglet="Le parieur débutant — guide gratuit",
+                 description="Guide gratuit pour débuter les paris sportifs sans griller sa bankroll : "
+                             "cotes, mise, erreurs à éviter, vérifier un opérateur.")
+
+
+def page_merci():
+    corps = ('<div class="article" style="margin-top:40px">'
+             '<h1>C\'est envoyé.</h1>'
+             '<p class="chapeau">Le guide part dans ta boîte dans la minute. S\'il n\'arrive pas, '
+             'regarde dans les spams et marque-le comme « non spam ».</p>'
+             '<p><a href="/guides/"><b>Lire les guides en attendant →</b></a></p></div>')
+    return _page("C'est envoyé", corps, "guides", titre_onglet="Guide envoyé — Pari Foot")
 
 
 def sitemap():
     """LA CARTE DU SITE — indispensable : sans elle, Google met des semaines à trouver les guides.
     Le domaine est celui du déploiement ; si José change d'adresse, cette ligne suit."""
     base = os.environ.get("URL_PUBLIQUE", "https://pari-foot.onrender.com").rstrip("/")
-    pages = ["/", "/montante", "/guides"] + [f"/guides/{s}" for s in articles.ARTICLES]
+    pages = ["/", "/montante", "/guides", "/livre-blanc"] + [f"/guides/{s}" for s in articles.ARTICLES]
     urls = "".join(f"<url><loc>{base}{p}</loc></url>" for p in pages)
     return ('<?xml version="1.0" encoding="UTF-8"?>'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + urls + "</urlset>")
@@ -519,6 +626,12 @@ def fabriquer_serveur(port=8080):
             # ── LES GUIDES (le contenu qui se référence). José, 10/10/2026 : « on va passer au SEO
             # de pari foot ». Sans ces pages, il n'y a rien à référencer : une application sans
             # texte ne se classe pas sur Google.
+            if chemin in ("/livre-blanc/merci", "/livre-blanc/merci/"):
+                self._envoyer(page_merci(), "text/html; charset=utf-8")
+                return
+            if chemin == "/livre-blanc":
+                self._envoyer(page_livre_blanc(), "text/html; charset=utf-8")
+                return
             if chemin in ("/guides", "/guides/"):
                 self._envoyer(page_guides(), "text/html; charset=utf-8")
                 return
