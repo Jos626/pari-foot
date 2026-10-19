@@ -354,10 +354,13 @@ def page_jour():
     jour = p.get("jour") or ""
     aujourd = time.strftime("%Y-%m-%d")
     if matchs and jour and jour != aujourd:
-        corps = (f'<div class="article" style="margin-top:26px"><h1>Pas d’analyses aujourd’hui</h1>'
-                 f'<p class="chapeau">Les dernières analyses publiées datent du {html.escape(jour)}. '
-                 f'Je ne les remets pas en avant : un pronostic périmé n’a aucune valeur.</p>'
-                 f'<p><a href="/guides/"><b>Lire les guides en attendant →</b></a></p></div>')
+        corps = ('<div class="article" style="margin-top:26px"><h1>Mes pronostics arrivent par email</h1>'
+                 '<p class="chapeau">Les analyses ne sont plus publiées ici : elles partent chaque '
+                 'matin dans la boîte des abonnés, avec la montante. C’est gratuit, et tu peux te '
+                 'désinscrire en un clic.</p>'
+                 + FORMULAIRE +
+                 f'<p class="aide" style="margin-top:22px">Dernière analyse publiée : {html.escape(jour)}. '
+                 'Les guides restent ouverts : <a href="/guides/">cotes, mise, bonus</a>.</p></div>')
     elif not matchs:
         corps = ('<div class="article" style="margin-top:26px"><h1>Mes pronostics arrivent par email</h1>'
                  '<p class="chapeau">Les analyses ne sont plus publiées ici : elles partent chaque '
