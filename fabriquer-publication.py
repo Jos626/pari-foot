@@ -79,7 +79,18 @@ def main():
 
     analyses = lire("analyses-du-jour.json", {"jour": None, "matchs": {}})
     vivier = lire("vivier-montante.json", {})
-    jour = analyses.get("jour") or datetime.now().strftime("%Y-%m-%d")
+    aujourd = datetime.now().strftime("%Y-%m-%d")
+    jour = analyses.get("jour") or aujourd
+
+    # ⛔ CONSTAT 19/10/2026 — LA PANNE QUI COÛTE LA CRÉDIBILITÉ : le bot était mort, ses analyses
+    # dataient du 17, et cette fabrique les a republiées avec un horodatage neuf. José a reçu une
+    # « montante du jour » portant un match du 17 — vrai match, mauvaise journée. Un pronostic
+    # périmé présenté comme celui du jour, c'est pire qu'aucun pronostic.
+    # Règle : si les analyses ne sont pas de la journée, on ne fabrique RIEN et on le dit.
+    if jour != aujourd:
+        print(f"⛔ Analyses datées du {jour} (aujourd'hui : {aujourd}). "
+              f"Le bot n'a rien produit de neuf — publication annulée.", flush=True)
+        return 2
 
     matchs, refuses = [], 0
     for nom in (analyses.get("matchs") or {}).keys():
@@ -103,6 +114,11 @@ def main():
         # mieux vaut le montrer que le dire.
         table = horaires()
         infos = table.get(nom) or {}
+        # ⛔ Même règle pour chaque match : sans coup d'envoi du bon jour, il ne part pas.
+        quand = (infos.get("coup_envoi") or "")[:10]
+        if quand and quand != jour:
+            refuses += 1
+            continue
         matchs.append({"match": nom, "message": texte,
                        "coup_envoi": infos.get("coup_envoi"),
                        "en_direct": infos.get("en_direct", False)})
@@ -110,6 +126,9 @@ def main():
     pool = []
     for v in (vivier.get("vivier") or []):
         if not isinstance(v, dict) or not v.get("match"):
+            continue
+        quand = (v.get("coup_envoi") or "")[:10]
+        if quand and quand != jour:      # match d'un autre jour = hors montante
             continue
         pool.append({"match": v.get("match"), "competition": v.get("competition"),
                      "libelle": nommer_pari(v),          # ⛔ plus jamais de « None » à l'écran
