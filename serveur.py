@@ -371,17 +371,25 @@ def page_jour():
 
 
 def page_montante():
-    p = lire_publication() or {}
-    pool = (p.get("montante") or {}).get("pool") or []
-    if not pool:
-        corps = ('<div class="vide">Le vivier de la montante n\'est pas encore publié.<br>'
-                 'Il arrive d\'habitude la veille au soir.</div>')
-    else:
-        corps = ('<h2>Le vivier du jour</h2>'
-                 '<p class="plaisir" style="margin:0 0 12px">Les matchs retenus pour la montante. '
-                 'La cote affichée est celle du pari conseillé.</p>'
-                 + "".join(_carte_montante(v) for v in pool))
-    return _page("La montante", corps, "montante")
+    """La montante n'est plus affichée : elle part dans l'email du matin, avec les analyses.
+    La page reste ouverte pour expliquer ce que c'est et capter l'inscription."""
+    corps = ('<div class="article" style="margin-top:26px"><h1>La montante</h1>'
+             '<p class="chapeau">Une progression de mises, match par match, jusqu\'à ce que la '
+             'série s\'arrête. Elle est envoyée chaque matin aux abonnés, avec les analyses du jour.</p>'
+             + FORMULAIRE +
+             '<h2>Comment ça marche</h2>'
+             '<p>On part d\'une mise de départ, on la reporte sur le pari suivant, et on s\'arrête '
+             'dès qu\'un pari tombe. L\'objectif n\'est pas de « doubler » : c\'est de faire monter '
+             'une mise sans jamais exposer plus que le départ.</p>'
+             '<ul><li>Chaque étape est indiquée avec sa cote et son heure de coup d\'envoi.</li>'
+             '<li>La série s\'arrête au premier échec — c\'est la règle, pas une option.</li>'
+             '<li>Ne suis jamais une montante avec de l\'argent dont tu as besoin.</li></ul>'
+             '<p class="aide">Jeu responsable · interdit aux mineurs · joue seulement ce que tu peux perdre.</p>'
+             '</div>')
+    return _page("La montante", corps, "montante",
+                 titre_onglet="La montante — Pari Foot",
+                 description="La montante expliquée : une progression de mises envoyée chaque matin "
+                             "aux abonnés, avec les analyses du jour.")
 
 
 def page_guides():
