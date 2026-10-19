@@ -326,6 +326,7 @@ def _page(titre, contenu, actif, titre_onglet=None, description=None):
                + lien("montante", "La montante", "/montante"))
     return f"""<!doctype html><html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google-site-verification" content="h5XzcBysNSdxCMwQ0ksBW0wg9kprPAmrjHKjOFjkJls" />
 <title>{titre_final}</title>{balise_desc}
 <link rel="manifest" href="/manifeste.json">
 <meta name="theme-color" content="#fffdf8">
