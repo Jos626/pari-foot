@@ -513,13 +513,13 @@ def fabriquer_serveur(port=8080):
             if chemin in ("/", "/index.html"):
                 self._envoyer(page_jour(), "text/html; charset=utf-8")
                 return
-            if chemin == "/montante":
+            if chemin in ("/montante", "/montante/"):
                 self._envoyer(page_montante(), "text/html; charset=utf-8")
                 return
             # ── LES GUIDES (le contenu qui se référence). José, 10/10/2026 : « on va passer au SEO
             # de pari foot ». Sans ces pages, il n'y a rien à référencer : une application sans
             # texte ne se classe pas sur Google.
-            if chemin == "/guides":
+            if chemin in ("/guides", "/guides/"):
                 self._envoyer(page_guides(), "text/html; charset=utf-8")
                 return
             if chemin.startswith("/guides/"):
