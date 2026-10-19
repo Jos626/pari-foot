@@ -115,8 +115,16 @@ def main():
         table = horaires()
         infos = table.get(nom) or {}
         # ⛔ Même règle pour chaque match : sans coup d'envoi du bon jour, il ne part pas.
+        # ⛔ EXIGENCE DE PREUVE (19/10/2026). Un match sans heure de coup d'envoi n'a aucune preuve
+        # qu'il se joue aujourd'hui : le 19/10, trois rencontres japonaises sans horaire sont
+        # passées en publication — introuvables dans le calendrier du jour (FotMob), et l'une
+        # d'elles ressemblait à un match féminin du 18. Pas d'horaire du jour = pas de publication.
         quand = (infos.get("coup_envoi") or "")[:10]
-        if quand and quand != jour:
+        if quand != jour:
+            if quand:
+                print(f"   (écarté, joué le {quand}) {nom}", flush=True)
+            else:
+                print(f"   (écarté, aucun horaire vérifiable) {nom}", flush=True)
             refuses += 1
             continue
         matchs.append({"match": nom, "message": texte,
