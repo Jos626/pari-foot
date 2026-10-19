@@ -251,6 +251,7 @@ def _page(titre, contenu, actif, titre_onglet=None, description=None):
     return f"""<!doctype html><html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="google-site-verification" content="qNKo4HtNvkss5ya1qdbGFi6Jd_kZbz2R5GQDh3QVJEg">
+<meta name="mitgo-verification" content="9372d53c-9cce-4b9f-bf7c-4fa1c6420920">
 <title>{titre_final}</title>{balise_desc}
 <link rel="manifest" href="/manifeste.json">
 <meta name="theme-color" content="#f7f9fc">
