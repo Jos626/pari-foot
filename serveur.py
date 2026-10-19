@@ -19,7 +19,9 @@ import os
 import re
 import sys
 import time
+import urllib.error
 import urllib.parse
+import urllib.request
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
@@ -761,17 +763,6 @@ def fabriquer_serveur(port=8080):
             # ── LES GUIDES (le contenu qui se référence). José, 10/10/2026 : « on va passer au SEO
             # de pari foot ». Sans ces pages, il n'y a rien à référencer : une application sans
             # texte ne se classe pas sur Google.
-            if chemin == "/_diag/inscription":
-                import json as _j, traceback as _tb
-                info = {"token": bool(os.environ.get("GH_TOKEN")),
-                        "repo": os.environ.get("GH_REPO", "(defaut)")}
-                try:
-                    info["resultat"] = _abonner("diag@example.com")
-                except Exception as e:
-                    info["erreur"] = f"{type(e).__name__}: {str(e)[:220]}"
-                    info["trace"] = _tb.format_exc().splitlines()[-3:]
-                self._envoyer(_j.dumps(info, ensure_ascii=False), "application/json; charset=utf-8")
-                return
             if chemin in ("/abonner", "/abonner/"):
                 longueur = int(self.headers.get("Content-Length") or 0)
                 donnees = self.rfile.read(longueur).decode("utf-8", "ignore")
