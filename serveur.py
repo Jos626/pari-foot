@@ -698,6 +698,15 @@ def fabriquer_serveur(port=8080):
             self.end_headers()
             self.wfile.write(donnees)
 
+        def do_POST(self):
+            """Les formulaires du site (inscription) postent ici.
+
+            ⛔ Sans cette méthode, le serveur répond 501 et l'inscription est perdue — le lecteur
+            voit une page d'erreur, et aucune inscription n'arrive. Le traitement est le même que
+            pour GET : le corps est lu par la route /abonner elle-même.
+            """
+            self.do_GET()
+
         def do_GET(self):
             chemin = self.path.split("?")[0]
 
