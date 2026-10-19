@@ -18,6 +18,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.parse
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -273,6 +274,13 @@ def _carte_montante(v):
 
 
 
+ANCIENS_VPN = {"vpn-efootball", "meilleur-vpn-pour-tv-android-le-guide-complet-2024",
+               "telecharger-vpn-pour-tv-android-le-guide-complet",
+               "vpn-pour-tv-android-guide-complet-gratuit-et-payant",
+               "vpn-pour-regarder-canal-a-l-etranger-le-guide-complet",
+               "meilleur-vpn-pour-la-chine-le-guide-complet-2026",
+               "cyberghost-vpn-prix-par-mois-le-guide-complet"}
+
 MARQUES = [("nordvpn", "NordVPN"), ("cyberghost", "CyberGhost"), ("betclic", "Betclic"),
            ("1xbet", "1xBet"), ("melbet", "Melbet"), ("premierbet", "Premier Bet")]
 
@@ -338,11 +346,23 @@ def _page(titre, contenu, actif, titre_onglet=None, description=None):
 
 
 def page_jour():
+    """Les analyses du jour. ⛔ Si elles datent d'hier, on ne fait pas semblant : afficher de
+    vieux pronostics comme s'ils étaient du jour, c'est le meilleur moyen de perdre la confiance
+    du lecteur — et la sienne."""
     p = lire_publication() or {}
     matchs = p.get("matchs") or []
-    if not matchs:
-        corps = ('<div class="vide">Aucune analyse publiée pour le moment.<br>'
-                 'Reviens un peu plus tard dans la journée.</div>')
+    jour = p.get("jour") or ""
+    aujourd = time.strftime("%Y-%m-%d")
+    if matchs and jour and jour != aujourd:
+        corps = (f'<div class="article" style="margin-top:26px"><h1>Pas d’analyses aujourd’hui</h1>'
+                 f'<p class="chapeau">Les dernières analyses publiées datent du {html.escape(jour)}. '
+                 f'Je ne les remets pas en avant : un pronostic périmé n’a aucune valeur.</p>'
+                 f'<p><a href="/guides/"><b>Lire les guides en attendant →</b></a></p></div>')
+    elif not matchs:
+        corps = ('<div class="article" style="margin-top:26px"><h1>Pas d’analyses aujourd’hui</h1>'
+                 '<p class="chapeau">Rien de solide à publier pour l’instant. Reviens en fin de '
+                 'journée, ou lis les guides.</p>'
+                 '<p><a href="/guides/"><b>Lire les guides →</b></a></p></div>')
     else:
         corps = "".join(_carte_message(m) for m in matchs)
     return _page("Aujourd'hui", corps, "jour")
@@ -407,7 +427,7 @@ def page_article(slug):
              f'<div class="hero"><img src="{_image(slug)}" alt="{html.escape(titre)}" width="1200" height="675"></div>'
              f'{a["corps"]}'
              f'<div class="partage"><span>Partager</span>{partage}</div></div>')
-    return _page(a["h1"], corps, "guides", titre_onglet=titre, description=a["description"])
+    return _page(a["h1"], corps, "guides", titre_onglet=_maj(titre), description=a["description"])
 
 
 def sitemap():
@@ -503,11 +523,20 @@ def fabriquer_serveur(port=8080):
                 self._envoyer(page_guides(), "text/html; charset=utf-8")
                 return
             if chemin.startswith("/guides/"):
-                page = page_article(chemin[len("/guides/"):].strip("/"))
+                slug = chemin[len("/guides/"):].strip("/")
+                page = page_article(slug)
                 if page:
                     self._envoyer(page, "text/html; charset=utf-8")
-                else:
-                    self._envoyer("<h1>Page introuvable</h1>", "text/html; charset=utf-8", 404)
+                    return
+                # ⛔ Les guides VPN vivaient ici avant la séparation des deux sites. On les renvoie
+                # définitivement vers Guide VPN : une redirection 301 transmet ce qui a été gagné,
+                # là où un 404 le perdrait.
+                if slug in ANCIENS_VPN:
+                    self.send_response(301)
+                    self.send_header("Location", "https://jos626.github.io/guides/" + slug + "/")
+                    self.end_headers()
+                    return
+                self._envoyer("<h1>Page introuvable</h1>", "text/html; charset=utf-8", 404)
                 return
             # La carte du site : elle dit à Google quelles pages existent. Sans elle, un site neuf
             # peut rester des semaines sans être exploré.

@@ -234,7 +234,7 @@ rien, demande le remboursement : tu auras au moins eu ta réponse.</p>
 }
 
 
-ARTICLES = {a["slug"]: a for a in (VPN_EFOOTBALL,)}
+ARTICLES = {}
 
 
 def _charger_articles_ecrits():
