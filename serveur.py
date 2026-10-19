@@ -359,10 +359,12 @@ def page_jour():
                  f'Je ne les remets pas en avant : un pronostic périmé n’a aucune valeur.</p>'
                  f'<p><a href="/guides/"><b>Lire les guides en attendant →</b></a></p></div>')
     elif not matchs:
-        corps = ('<div class="article" style="margin-top:26px"><h1>Pas d’analyses aujourd’hui</h1>'
-                 '<p class="chapeau">Rien de solide à publier pour l’instant. Reviens en fin de '
-                 'journée, ou lis les guides.</p>'
-                 '<p><a href="/guides/"><b>Lire les guides →</b></a></p></div>')
+        corps = ('<div class="article" style="margin-top:26px"><h1>Mes pronostics arrivent par email</h1>'
+                 '<p class="chapeau">Les analyses ne sont plus publiées ici : elles partent chaque '
+                 'matin dans la boîte des abonnés. C’est gratuit, et tu peux te désinscrire en un clic.</p>'
+                 + FORMULAIRE +
+                 '<p class="aide" style="margin-top:22px">En attendant, les guides restent ouverts : '
+                 '<a href="/guides/">cotes, mise, bonus</a>.</p></div>')
     else:
         corps = "".join(_carte_message(m) for m in matchs)
     return _page("Aujourd'hui", corps, "jour")
@@ -446,10 +448,9 @@ FORMULAIRE = """
   <input type="hidden" name="_template" value="table">
   <input type="hidden" name="_next" value="https://pari-foot.onrender.com/livre-blanc/merci/">
   <input type="email" name="email" required placeholder="ton@email.com" aria-label="Ton adresse email">
-  <button type="submit">Recevoir le guide</button>
+  <button type="submit">Recevoir les pronostics</button>
 </form>
-<p class="capture-note">Le guide arrive tout de suite. Ensuite, un email utile de temps en temps —
-jamais de spam, désinscription en un clic.</p>
+<p class="capture-note">Chaque jour, mes meilleurs pronostics dans ta boîte — et le guide du parieur débutant tout de suite. Gratuit, désinscription en un clic.</p>
 """
 
 COUVERTURE = """
