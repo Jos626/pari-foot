@@ -619,31 +619,44 @@ def page_merci():
 
 
 def _abonner(email_client):
-    """Inscrit un lecteur : le site envoie lui-même l'email à José, sans service tiers.
+    """Inscrit un lecteur : le site dépose l'adresse dans un dépôt privé GitHub.
 
-    ⛔ POURQUOI PAS FORMSUBMIT (19/10/2026) : leurs liens d'activation pour un nouveau domaine
-    répondent 500 et leurs envois exigent une confirmation que José n'a jamais reçue — résultat,
-    zéro inscription enregistrée alors que le formulaire semblait fonctionner. Un formulaire qui
-    ne dit rien est pire que pas de formulaire : le lecteur croit s'être inscrit.
-    Ici, le serveur envoie directement par SMTP (variables GMAIL_USER / GMAIL_PASS sur Render),
-    avec le même sujet que Pépite attend pour ranger l'abonné dans la bonne séquence.
+    ⛔ HISTORIQUE DU 19/10/2026, à garder en tête avant de « simplifier » :
+      · FormSubmit n'a jamais confirmé son activation pour ce domaine (liens 500) — zéro inscription.
+      · Envoyer l'email directement en SMTP depuis Render est impossible : `Network is unreachable`
+        (port 465 bloqué par l'hébergeur). Vérifié par diagnostic, pas supposé.
+    Le dépôt privé est la seule porte qui reste ouverte en HTTPS sans nouveau compte à créer.
+    Pépite lit ce fichier depuis le téléphone et envoie lui-même le guide et la séquence — c'est
+    lui qui a le SMTP, pas le site.
     """
-    import smtplib
-    from email.message import EmailMessage
-    utilisateur = os.environ.get("GMAIL_USER")
-    motdepasse = os.environ.get("GMAIL_PASS")
-    if not (utilisateur and motdepasse):
+    import base64
+    import urllib.error
+    jeton = os.environ.get("GH_TOKEN")
+    depot = os.environ.get("GH_REPO", "Jos626/pari-foot-inscriptions")
+    if not jeton:
         return False
-    msg = EmailMessage()
-    msg["From"] = utilisateur
-    msg["To"] = utilisateur
-    msg["Subject"] = "Nouvelle inscription — Pari Foot"
-    msg.set_content(f"Nouvel inscrit au site Pari Foot : {email_client}\n\n"
-                    f"Recu le {time.strftime('%d/%m/%Y a %H:%M')} (UTC).")
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as s:
-        s.login(utilisateur, motdepasse)
-        s.send_message(msg)
-    return True
+    entetes = {"Authorization": "Bearer " + jeton, "Accept": "application/vnd.github+json",
+               "User-Agent": "PariFoot", "Content-Type": "application/json"}
+    url = f"https://api.github.com/repos/{depot}/contents/inscriptions.jsonl"
+    sha, contenu = None, ""
+    try:
+        req = urllib.request.Request(url, headers=entetes)
+        with urllib.request.urlopen(req, timeout=30) as r:
+            d = json.load(r)
+        sha = d.get("sha")
+        contenu = base64.b64decode(d.get("content") or "").decode("utf-8", "ignore")
+    except urllib.error.HTTPError as e:
+        if e.code != 404:
+            raise
+    ligne = json.dumps({"email": email_client, "quand": time.strftime("%Y-%m-%dT%H:%M:%S"),
+                        "source": "foot"}, ensure_ascii=False) + "\n"
+    corps = {"message": f"Inscription {email_client[:3]}***",
+             "content": base64.b64encode((contenu + ligne).encode()).decode()}
+    if sha:
+        corps["sha"] = sha
+    req = urllib.request.Request(url, data=json.dumps(corps).encode(), method="PUT", headers=entetes)
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return r.status in (200, 201)
 
 
 def sitemap():
@@ -748,18 +761,6 @@ def fabriquer_serveur(port=8080):
             # ── LES GUIDES (le contenu qui se référence). José, 10/10/2026 : « on va passer au SEO
             # de pari foot ». Sans ces pages, il n'y a rien à référencer : une application sans
             # texte ne se classe pas sur Google.
-            if chemin == "/_diag/smtp":
-                # diagnostic temporaire : dit POURQUOI l'envoi échoue depuis Render
-                import json as _j, smtplib, socket
-                info = {"user": bool(os.environ.get("GMAIL_USER")), "pass": bool(os.environ.get("GMAIL_PASS"))}
-                try:
-                    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=20) as s:
-                        s.login(os.environ.get("GMAIL_USER", ""), os.environ.get("GMAIL_PASS", ""))
-                    info["smtp"] = "connexion et login OK"
-                except Exception as e:
-                    info["smtp"] = f"{type(e).__name__}: {str(e)[:200]}"
-                self._envoyer(_j.dumps(info), "application/json; charset=utf-8")
-                return
             if chemin in ("/abonner", "/abonner/"):
                 longueur = int(self.headers.get("Content-Length") or 0)
                 donnees = self.rfile.read(longueur).decode("utf-8", "ignore")
