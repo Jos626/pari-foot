@@ -90,6 +90,12 @@ header.site nav a:hover{color:var(--ink)}
   border-bottom:1px solid var(--line);margin-bottom:26px}
 .article .entete-meta img{width:34px;height:34px;border-radius:50%;object-fit:cover}
 .article .entete-meta span{font-size:13.5px;color:var(--muted)}
+.hero-accueil{position:relative;border-radius:18px;overflow:hidden;margin:0 0 22px;background:#1b1a17}
+.hero-accueil img{width:100%;height:clamp(220px,46vw,420px);object-fit:cover;display:block;filter:brightness(.72)}
+.hero-voile{position:absolute;inset:auto 0 0 0;padding:18px 20px 20px;
+  background:linear-gradient(to top,rgba(12,11,9,.86),rgba(12,11,9,0))}
+.hero-voile h1{color:#fff;font-size:clamp(1.5rem,6vw,2.4rem);margin:6px 0 0;line-height:1.12}
+.hero-voile .etiquette{color:#e8c547;font-size:.72rem;letter-spacing:.12em;font-weight:700}
 .article .hero{border-radius:14px;overflow:hidden;margin:0 0 30px;background:#efe9dc}
 .article .hero img{width:100%;height:auto}
 .article h2{font-family:Georgia,serif;font-size:26px;line-height:1.25;letter-spacing:-.015em;margin:38px 0 12px}
@@ -351,7 +357,11 @@ POPUP_HTML = r'''<!-- ⛔ POPUP DE CAPTURE (19/10/2026, demande de José) : le f
 </div>
 <script>
 (function () {
-  try { if (localStorage.getItem("pf_popup") === new Date().toDateString()) return; } catch (e) {}
+  // ?popup=1 force l'affichage : sans ça, le drapeau « une fois par jour » empêche de vérifier.
+  var forcer = location.search.indexOf("popup=1") !== -1;
+  if (!forcer) {
+    try { if (localStorage.getItem("pf_popup") === new Date().toDateString()) return; } catch (e) {}
+  }
   if (location.pathname.indexOf("/livre-blanc") === 0) return;
   var boite = document.getElementById("pf-popup");
   if (!boite) return;
@@ -360,17 +370,17 @@ POPUP_HTML = r'''<!-- ⛔ POPUP DE CAPTURE (19/10/2026, demande de José) : le f
     if (montre) return;
     montre = true;
     boite.hidden = false;
-    try { localStorage.setItem("pf_popup", new Date().toDateString()); } catch (e) {}
+    if (!forcer) { try { localStorage.setItem("pf_popup", new Date().toDateString()); } catch (e) {} }
   }
   function fermer() { boite.hidden = true; }
   boite.querySelector(".pf-fermer").addEventListener("click", fermer);
   boite.querySelector(".pf-non").addEventListener("click", fermer);
   boite.addEventListener("click", function (e) { if (e.target === boite) fermer(); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") fermer(); });
-  setTimeout(afficher, 18000);
+  setTimeout(afficher, 8000);
   window.addEventListener("scroll", function () {
     var h = document.documentElement;
-    if ((h.scrollTop + window.innerHeight) / h.scrollHeight > 0.55) afficher();
+    if ((h.scrollTop + window.innerHeight) / h.scrollHeight > 0.40) afficher();
   }, { passive: true });
 })();
 </script>'''
@@ -425,9 +435,16 @@ def page_jour():
             f'<h3>{html.escape(a.get("h1") or a.get("titre") or slug)}</h3>'
             f'<p>{html.escape((a.get("chapeau") or "")[:150])}</p></div></a>')
 
+    # ⛔ UN BLOG SANS IMAGE EN TÊTE NE RESSEMBLE PAS À UN BLOG (remarque de José, 20/10) :
+    # la page d'accueil enchaînait titre et texte sur du vide. Une grande photo de football
+    # en ouverture donne le ton éditorial et retient l'œil avant la lecture.
     corps = (
+        '<div class="hero-accueil">'
+        '<img src="/img/p1.jpg" alt="Ambiance de stade lors d\'un match de football" '
+        'width="1200" height="675">'
+        '<div class="hero-voile"><span class="etiquette">PARIS SPORTIFS · CÔTE D\'IVOIRE</span>'
+        '<h1>Parie mieux. Pas plus.</h1></div></div>'
         '<section class="hero-texte">'
-        '<h1>Parie mieux. Pas plus.</h1>'
         '<p class="chapeau">Des guides clairs pour les parieurs ivoiriens : comprendre une cote, '
         'tenir une bankroll, repérer un opérateur sérieux. Et mes pronostics du jour, envoyés par '
         'email chaque matin.</p>'
