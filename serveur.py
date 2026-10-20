@@ -805,6 +805,14 @@ def fabriquer_serveur(port=8080):
                 return
             if chemin.startswith("/guides/"):
                 slug = chemin[len("/guides/"):].strip("/")
+                # ⛔ ANCIENNE URL CONSERVÉE EN 301 (20/10/2026) : le comparatif Betclic/Premier Bet a
+                # été réécrit autour de 1xBet, seul programme d'affiliation actif. On redirige
+                # proprement pour ne pas perdre l'indexation déjà acquise sur l'ancienne adresse.
+                if slug == "betclic-ou-premier-bet-comparatif":
+                    self.send_response(301)
+                    self.send_header("Location", "/guides/1xbet-ou-premier-bet-comparatif/")
+                    self.end_headers()
+                    return
                 page = page_article(slug)
                 if page:
                     self._envoyer(page, "text/html; charset=utf-8")
