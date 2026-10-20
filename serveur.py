@@ -345,12 +345,12 @@ POPUP_HTML = r'''<!-- ⛔ POPUP DE CAPTURE (19/10/2026, demande de José) : le f
   <div class="pf-boite" role="dialog" aria-modal="true" aria-labelledby="pf-titre">
     <button type="button" class="pf-fermer" aria-label="Fermer">×</button>
     <img src="/img/p6.jpg" alt="" width="360" height="120">
-    <h3 id="pf-titre">Mes pronostics du jour, par email</h3>
-    <p class="pf-texte">Chaque matin : mes analyses, la montante, et le guide du parieur débutant
-    tout de suite. Gratuit, désinscription en un clic.</p>
+    <h3 id="pf-titre">Reçois nos meilleurs pronostics foot, chaque matin</h3>
+    <p class="pf-texte">Les matchs du jour, l'analyse, la cote et la montante — dans ta boîte mail
+    avant le coup d'envoi. Gratuit, désinscription en un clic.</p>
     <form action="/abonner" method="POST" class="pf-form">
                       <input type="email" name="email" required placeholder="ton@email.com" aria-label="Ton adresse email">
-      <button type="submit">Recevoir les pronostics</button>
+      <button type="submit">Recevoir mes pronostics du jour</button>
     </form>
     <button type="button" class="pf-non">Non merci, je continue ma lecture</button>
   </div>
@@ -547,7 +547,7 @@ def page_article(slug):
 FORMULAIRE = """
 <form class="capture" action="/abonner" method="POST">
   <input type="email" name="email" required placeholder="ton@email.com" aria-label="Ton adresse email">
-  <button type="submit">Recevoir les pronostics</button>
+  <button type="submit">Recevoir mes pronostics du jour</button>
 </form>
 <p class="capture-note">Chaque jour, mes meilleurs pronostics dans ta boîte — et le guide du parieur débutant tout de suite. Gratuit, désinscription en un clic.</p>
 """
@@ -741,6 +741,44 @@ def fabriquer_serveur(port=8080):
 
         def do_GET(self):
             chemin = self.path.split("?")[0]
+
+            # ⛔ DÉSINSCRIPTION (20/10/2026) : l'email quotidien promet « un clic ». Sans cette
+            # route, le lien promis menait à une page 404 — promesse non tenue, et signalement
+            # spam assuré.
+            if chemin == "/desinscription":
+                import urllib.parse as _up
+                params = _up.parse_qs(self.path.split("?", 1)[1] if "?" in self.path else "")
+                adresse = (params.get("email") or [""])[0].strip().lower()
+                fait = False
+                if adresse:
+                    try:
+                        import sqlite3 as _sq
+                        conn = _sq.connect(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                                        "..", "seo-app", "abonnes.db"))
+                        conn.execute("UPDATE abonnes SET statut='inactif' WHERE email=?", (adresse,))
+                        conn.commit()
+                        fait = conn.total_changes > 0
+                        conn.close()
+                    except Exception:                              # noqa: BLE001
+                        fait = False
+                corps = ("<!doctype html><html lang=fr><meta charset=utf-8>"
+                         "<meta name=viewport content='width=device-width,initial-scale=1'>"
+                         "<title>Désinscription — Pari Foot</title>"
+                         "<body style=\"font-family:system-ui;background:#14120e;color:#f2ece0;"
+                         "padding:32px;line-height:1.6\"><h1 style=\"font-size:1.3rem\">"
+                         + ("C'est fait." if fait else "Adresse introuvable.")
+                         + "</h1><p style=\"color:#b9ae9a\">"
+                         + ("Tu ne recevras plus les pronostics du jour. Tes guides restent en ligne."
+                            if fait else
+                            "Aucun abonné actif ne correspond à cette adresse.")
+                         + "</p><p><a style=\"color:#e3b45a\" href='/'>Retour au site</a></p>")
+                corps_bytes = corps.encode("utf-8")
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Content-Length", str(len(corps_bytes)))
+                self.end_headers()
+                self.wfile.write(corps_bytes)
+                return
 
             # ⚠️ ON COMPTE LES PAGES AFFICHÉES, PAS LES FICHIERS. Une icône ou un fichier JSON n'est
             # pas une visite : les compter gonflerait les chiffres sans rien dire de vrai. On garde
