@@ -163,6 +163,50 @@ footer.pied a{color:var(--muted)}
   .carte h3{font-size:17px}
   .carte p{display:none}
 }
+
+/* ══════════════════════════════════════════════════════════════════════════════════════
+   COUCHE « VERRE CLAIR » — protocole de design de José (22/10/2026).
+   Le blog garde sa tenue éditoriale (titres serif, larges marges) ; ce sont les surfaces,
+   les ombres et les accents qui changent : halos pastel, cartes de verre, boutons en
+   dégradé violet → cyan, apparition en fondu.
+   ══════════════════════════════════════════════════════════════════════════════════════ */
+:root{--violet:#7c3aed;--cyan:#0891b2;--verre:rgba(255,255,255,.66)}
+body{
+  background:
+    radial-gradient(820px 520px at 6% -6%, rgba(124,58,237,.13), transparent 62%),
+    radial-gradient(760px 560px at 102% 0%, rgba(8,145,178,.11), transparent 58%),
+    radial-gradient(700px 620px at 50% 108%, rgba(236,72,153,.08), transparent 62%),
+    #f9fafd;
+  background-attachment:fixed;
+}
+header.site{background:rgba(255,255,255,.72);border-bottom:1px solid rgba(27,35,55,.08);
+  -webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%)}
+.marque{font-family:"Outfit",Georgia,serif;font-weight:800}
+.une .visuel,.carte .vignette{border-radius:18px;box-shadow:0 18px 44px -30px rgba(27,35,55,.5)}
+.une h2,.carte h3{letter-spacing:-.02em}
+.etiquette{background:linear-gradient(100deg,rgba(124,58,237,.14),rgba(8,145,178,.14));
+  color:#4c1d95;border:1px solid rgba(124,58,237,.22)}
+.carte{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8);
+  border-radius:18px;padding:18px;margin:14px 0;
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+  box-shadow:0 16px 40px -32px rgba(27,35,55,.5);
+  transition:transform .2s ease, box-shadow .25s ease, border-color .2s ease}
+.carte:hover{transform:translateY(-3px);border-color:rgba(124,58,237,.3);
+  box-shadow:0 22px 46px -30px rgba(124,58,237,.45)}
+button,.bouton,.pf-form button{
+  background:linear-gradient(100deg,var(--violet),var(--cyan));color:#fff;border:0;
+  border-radius:14px;font-weight:700;font-family:inherit;
+  box-shadow:0 12px 28px -14px rgba(124,58,237,.6);
+  transition:transform .18s ease, box-shadow .25s ease, filter .2s ease}
+button:hover,.bouton:hover,.pf-form button:hover{transform:translateY(-2px);filter:brightness(1.05);
+  box-shadow:0 18px 38px -16px rgba(8,145,178,.55)}
+input,textarea,select{background:rgba(255,255,255,.9);border:1px solid rgba(27,35,55,.12);
+  border-radius:14px;transition:border-color .2s ease, box-shadow .2s ease}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--cyan);
+  box-shadow:0 0 0 4px rgba(8,145,178,.14)}
+.pf-boite{border-radius:20px;box-shadow:0 30px 70px -40px rgba(27,35,55,.6)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;
+  transition-duration:.01ms!important}}
 """
 
 
@@ -397,6 +441,7 @@ def _page(titre, contenu, actif, titre_onglet=None, description=None):
                )
     return f"""<!doctype html><html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
 <meta name="google-site-verification" content="h5XzcBysNSdxCMwQ0ksBW0wg9kprPAmrjHKjOFjkJls" />
 <title>{titre_final}</title>{balise_desc}
 <link rel="manifest" href="/manifeste.json">
