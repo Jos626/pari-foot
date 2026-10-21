@@ -204,6 +204,12 @@ input,textarea,select{background:rgba(255,255,255,.9);border:1px solid rgba(27,3
   border-radius:14px;transition:border-color .2s ease, box-shadow .2s ease}
 input:focus,textarea:focus,select:focus{outline:none;border-color:var(--cyan);
   box-shadow:0 0 0 4px rgba(8,145,178,.14)}
+/* encart « guide gratuit » : texte plein, jamais grisé ni barré */
+.encart{background:#fffaf0 !important;border:1px solid #e8c56a !important;border-radius:16px;
+  color:#1b2337}
+.encart b{color:#1b2337;text-decoration:none}
+.encart p{color:#4a5568 !important;font-size:14.5px;line-height:1.55}
+.encart a{color:#7c3aed !important;font-weight:700;text-decoration:none}
 .pf-boite{border-radius:20px;box-shadow:0 30px 70px -40px rgba(27,35,55,.6)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;
   transition-duration:.01ms!important}}
@@ -803,6 +809,12 @@ def fabriquer_serveur(port=8080):
 
         def do_GET(self):
             chemin = self.path.split("?")[0]
+            # ⛔ 404 SUR UNE BARRE OBLIQUE (constat de José, 22/10/2026) : les liens du site
+            # pointaient vers « /livre-blanc/ » alors que la route n'acceptait que
+            # « /livre-blanc ». On tolère désormais les deux, sans casser les adresses d'articles
+            # qui, elles, se terminent volontairement par une barre.
+            if len(chemin) > 1 and chemin.endswith("/") and not chemin.startswith("/guides/"):
+                chemin = chemin.rstrip("/")
 
             # ⛔ DÉSINSCRIPTION (20/10/2026) : l'email quotidien promet « un clic ». Sans cette
             # route, le lien promis menait à une page 404 — promesse non tenue, et signalement
