@@ -771,9 +771,21 @@ def fabriquer_serveur(port=8080):
                 donnees = donnees.encode()
             self.send_response(code)
             self.send_header("Content-Type", type_mime)
+            # ⛔ EN-TÊTES ABSENTS (audit du 22/10/2026) : on les ajoute ici, une fois pour toutes.
+            self.send_header("X-Content-Type-Options", "nosniff")
+            self.send_header("X-Frame-Options", "SAMEORIGIN")
+            self.send_header("Referrer-Policy", "no-referrer-when-downgrade")
             self.send_header("Content-Length", str(len(donnees)))
             self.end_headers()
             self.wfile.write(donnees)
+
+        def _origine_locale(self):
+            """⛔ CSRF (audit du 22/10/2026) : on refuse un formulaire venu d'un autre site."""
+            origine = (self.headers.get("Origin") or self.headers.get("Referer") or "").strip()
+            if not origine:
+                return True
+            return origine.startswith(("https://pari-foot.onrender.com",
+                                       "http://127.0.0.1", "http://localhost"))
 
         def do_POST(self):
             """Les formulaires du site (inscription) postent ici.
@@ -782,6 +794,11 @@ def fabriquer_serveur(port=8080):
             voit une page d'erreur, et aucune inscription n'arrive. Le traitement est le même que
             pour GET : le corps est lu par la route /abonner elle-même.
             """
+            if not self._origine_locale():
+                self.send_response(403)
+                self.send_header("Content-Length", "0")
+                self.end_headers()
+                return
             self.do_GET()
 
         def do_GET(self):
@@ -928,7 +945,12 @@ def fabriquer_serveur(port=8080):
                 self._envoyer(texte, type_mime)
                 return
             if chemin.startswith("/img/") and chemin.endswith(".jpg"):
-                fichier = os.path.join(ICI, chemin.lstrip("/"))
+                # ⛔ TRAVERSÉE DE CHEMIN (audit du 22/10/2026) : « /img/../../x.jpg » sortait du
+                # dossier du site. Nom de fichier simple + vérification du chemin résolu.
+                fichier = os.path.realpath(os.path.join(ICI, "img", os.path.basename(chemin)))
+                if not fichier.startswith(os.path.realpath(os.path.join(ICI, "img")) + os.sep):
+                    self._envoyer("introuvable", "text/plain", 404)
+                    return
                 try:
                     with open(fichier, "rb") as f:
                         self._envoyer(f.read(), "image/jpeg")
@@ -944,7 +966,11 @@ def fabriquer_serveur(port=8080):
                 return
             self._envoyer("<h1>Page introuvable</h1>", "text/html; charset=utf-8", 404)
 
-    return ThreadingHTTPServer(("0.0.0.0", port), Traitement)
+    # ⛔ ÉCOUTE OUVERTE À TOUT LE RÉSEAU (audit du 22/10/2026) : 0.0.0.0 est nécessaire sur
+    # Render, mais sur le téléphone cela exposait le site à tout le Wi-Fi. On n'ouvre largement
+    # que si la variable RENDER existe ; sinon on reste en local.
+    hote = "0.0.0.0" if os.environ.get("RENDER") else "127.0.0.1"
+    return ThreadingHTTPServer((hote, port), Traitement)
 
 
 if __name__ == "__main__":
