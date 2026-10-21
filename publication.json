@@ -1,24 +1,48 @@
 {
- "jour": "2026-10-20",
- "fabrique_le": "2026-10-20T14:51:49+00:00",
+ "jour": "2026-10-21",
+ "fabrique_le": "2026-10-21T07:31:32+00:00",
  "matchs": [
   {
-   "match": "Tala'ea El Gaish - Pyramids",
-   "message": "🏟️  **Tala'ea El-Gaish**  🆚  **Pyramids FC**\n   🇪🇬 Égypte · Premier League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 73 % de chances\n\n🟢 DOUBLE CHANCE X2 (match nul ou Pyramids FC gagne)\n     📈 74 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **0-1** · 14 %     **1-1** · 12 %     **0-2** · 10 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (25 matchs au minimum), pas sur un classement. Compétition : Premier League.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
-   "coup_envoi": "2026-10-20T17:00+00:00",
+   "match": "Persija Jakarta - Arema",
+   "message": "🏟️  **Persija Jakarta**  🆚  **Arema**\n   Super League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 72 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 12 %     **1-0** · 9 %     **2-1** · 9 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (8 matchs au minimum), pas sur un classement. Compétition : Super League.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-21T12:00+00:00",
+   "en_direct": false
+  },
+  {
+   "match": "Avispa Fukuoka - Gamba Osaka",
+   "message": "🏟️  **Avispa Fukuoka**  🆚  **Gamba Osaka**\n   🇯🇵 Japon · J. League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 73 % de chances\n\n🟢 DOUBLE CHANCE 1X (Avispa Fukuoka gagne ou match nul)\n     📈 71 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-0** · 12 %     **1-1** · 12 %     **2-0** · 10 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-21T10:00+00:00",
+   "en_direct": false
+  },
+  {
+   "match": "FC Tokyo - Kashiwa Reysol",
+   "message": "🏟️  **FC Tokyo**  🆚  **Kashiwa Reysol**\n   🇯🇵 Japon · J. League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 80 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 10 %     **2-1** · 9 %     **1-2** · 8 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-21T10:00+00:00",
+   "en_direct": false
+  },
+  {
+   "match": "Kawasaki Frontale - Vissel Kobe",
+   "message": "🏟️  **Kawasaki Frontale**  🆚  **Vissel Kobe**\n   🇯🇵 Japon · J. League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 80 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 9 %     **2-1** · 9 %     **1-2** · 7 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-21T10:00+00:00",
+   "en_direct": false
+  },
+  {
+   "match": "Tokushima Vortis - Vanraure Hachinohe",
+   "message": "🏟️  **Tokushima Vortis**  🆚  **Vanraure Hachinohe**\n   🇯🇵 Japon · J. League 2\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 75 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-0** · 15 %     **1-1** · 13 %     **0-0** · 11 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (11 matchs au minimum), pas sur un classement. Compétition : J. League 2.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-21T10:00+00:00",
    "en_direct": false
   }
  ],
  "montante": {
   "mode": "jour",
-  "jour": "2026-10-20",
+  "jour": "2026-10-21",
   "pool": [
    {
-    "match": "Dewa Utd - Persijap Jepara",
-    "competition": "indonesie liga 1",
-    "libelle": "Victoire de Dewa Utd",
-    "cote": 1.14,
-    "coup_envoi": "2026-10-20T12:00+00:00",
+    "match": "Tainan City - Pusamania Borneo",
+    "competition": "afc challenge league",
+    "libelle": "Victoire de Pusamania Borneo",
+    "cote": 1.18,
+    "coup_envoi": "2026-10-21T12:00+00:00",
     "en_direct": false
    }
   ]
