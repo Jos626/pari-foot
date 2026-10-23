@@ -28,6 +28,74 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import articles  # les GUIDES écrits (contenu SEO), avec leur lien d'affiliation en un seul endroit
 import trafic    # le compteur de visites (sobre : sans cookie, sans adresse IP)
 
+# ── Couche de finition commune (23/10/2026) ────────────────────────────────────────────────
+# Détails d'interface (retour à la ligne des titres, contour des images, transitions nommées,
+# chiffres tabulaires, focus visible, respect de prefers-reduced-motion). Servie à part pour ne
+# jamais toucher aux gabarits : si elle disparaît, rien ne casse.
+FINITION_CSS = r"""/* finition.css — couche de finition commune (23/10/2026)
+   Règles reprises du dépôt ECC, appliquées en dernier : elles corrigent des détails sans toucher
+   à la mise en page. Chargée par Pépite, Écoute, Pari Foot et Guide VPN.
+   Ne jamais y mettre de règle de structure : uniquement du détail qui améliore sans casser. */
+
+/* 1. Retour à la ligne : les titres ne finissent plus sur un mot orphelin,
+      les textes courts se répartissent proprement. */
+h1, h2, h3, h4, .titre, .titre-section, .entete h1, .hero h1, .article h1 {
+  text-wrap: balance;
+}
+p, li, .aide, .sous, .chapeau, .extrait, .excerpt, figcaption, blockquote {
+  text-wrap: pretty;
+}
+
+/* 2. Les images ne se fondent plus dans le fond clair (ni dans le sombre). */
+img {
+  outline: 1px solid rgba(0, 0, 0, .10);
+  outline-offset: -1px;
+}
+@media (prefers-color-scheme: dark) {
+  img { outline-color: rgba(255, 255, 255, .12); }
+}
+
+/* 3. Transitions nommées : jamais « all », sinon la mise en page s'anime par accident. */
+button, .bouton, [role="button"], a.bouton, .carte-cliquable, summary {
+  transition-property: transform, box-shadow, filter, background-color, border-color, color;
+  transition-duration: .18s;
+  transition-timing-function: cubic-bezier(.22, .61, .36, 1);
+}
+button:active, .bouton:active, [role="button"]:active, a.bouton:active {
+  transform: scale(.96);
+}
+
+/* 4. Les chiffres qui changent ne font plus danser la ligne. */
+table td, table th, .stat, .valeur, .compteur, .note-fin, .score, .badge, time, .prix {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 5. Le focus clavier se voit — sans halo permanent à la souris. */
+:focus-visible {
+  outline: 2px solid #0891b2;
+  outline-offset: 2px;
+}
+
+/* 6. Cibles tactiles : un petit lien de pied de page reste atteignable au doigt. */
+.pied a, footer a, nav a {
+  display: inline-block;
+  min-height: 24px;
+  padding: 2px 0;
+}
+
+/* 7. Respect de la préférence système : certaines personnes ne supportent pas le mouvement. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+"""
+
+
+
 ICI = os.path.dirname(os.path.abspath(__file__))
 LECTURE_VERTE, LECTURE_VERTE_FORTE = "#16a34a", "#15803d"
 
@@ -457,7 +525,7 @@ def _page(titre, contenu, actif, titre_onglet=None, description=None):
 <link rel="icon" type="image/png" href="/icone-192.png">
 <style>{STYLE}
 {POPUP_CSS}
-</style></head><body>
+</style><link rel="stylesheet" href="/finition.css"></head><body>
 <header class="site"><div class="wrap">
 <a class="marque" href="/">Pari<span>Foot</span></a>
 <nav>{onglets}</nav>
@@ -808,6 +876,24 @@ def fabriquer_serveur(port=8080):
             self.do_GET()
 
         def do_GET(self):
+
+            if self.path.split("?")[0] == "/finition.css":
+
+                donnees = FINITION_CSS.encode("utf-8")
+
+                self.send_response(200)
+
+                self.send_header("Content-Type", "text/css; charset=utf-8")
+
+                self.send_header("Cache-Control", "public, max-age=3600")
+
+                self.send_header("Content-Length", str(len(donnees)))
+
+                self.end_headers()
+
+                self.wfile.write(donnees)
+
+                return
             chemin = self.path.split("?")[0]
             # ⛔ 404 SUR UNE BARRE OBLIQUE (constat de José, 22/10/2026) : les liens du site
             # pointaient vers « /livre-blanc/ » alors que la route n'acceptait que
