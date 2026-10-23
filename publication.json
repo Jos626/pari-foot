@@ -1,10 +1,19 @@
 {
- "jour": "2026-10-21",
- "fabrique_le": "2026-10-21T15:52:50+00:00",
+ "jour": "2026-10-23",
+ "fabrique_le": "2026-10-23T11:03:05+00:00",
  "matchs": [],
  "montante": {
   "mode": "jour",
-  "jour": "2026-10-21",
-  "pool": []
+  "jour": "2026-10-23",
+  "pool": [
+   {
+    "match": "Fortis FC - Regar-TadAZ",
+    "competition": "afc challenge league",
+    "libelle": "Victoire de Regar-TadAZ",
+    "cote": 1.1,
+    "coup_envoi": "2026-10-23T13:25+00:00",
+    "en_direct": false
+   }
+  ]
  }
 }
