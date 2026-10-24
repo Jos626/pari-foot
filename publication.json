@@ -1,10 +1,46 @@
 {
  "jour": "2026-10-24",
- "fabrique_le": "2026-10-24T07:37:55+00:00",
- "matchs": [],
+ "fabrique_le": "2026-10-24T12:32:34+00:00",
+ "matchs": [
+  {
+   "match": "Arsenal - Everton",
+   "message": "🏟️  **Arsenal**  🆚  **Everton**\n   🇬🇧 Angleterre · Premier League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 72 % de chances\n\n🟢 DOUBLE CHANCE 1X (Arsenal gagne ou match nul)\n     📈 78 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **2-0** · 13 %     **1-0** · 12 %     **2-1** · 10 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-24T14:00+00:00",
+   "en_direct": false
+  },
+  {
+   "match": "Chelsea - Tottenham",
+   "message": "🏟️  **Chelsea**  🆚  **Tottenham**\n   🇬🇧 Angleterre · Premier League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 72 % de chances\n\n🟢 DOUBLE CHANCE 1X (Chelsea gagne ou match nul)\n     📈 71 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-0** · 12 %     **1-1** · 11 %     **2-0** · 10 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-24T16:30+00:00",
+   "en_direct": false
+  },
+  {
+   "match": "QPR - Swansea",
+   "message": "🏟️  **QPR**  🆚  **Swansea**\n   Angl Championship\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 77 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 11 %     **2-1** · 9 %     **1-0** · 8 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-24T14:00+00:00",
+   "en_direct": false
+  }
+ ],
  "montante": {
   "mode": "jour",
   "jour": "2026-10-24",
-  "pool": []
+  "pool": [
+   {
+    "match": "Boreham Wood - AFC Fylde",
+    "competition": "angl national",
+    "libelle": "Boreham Wood ou Nul",
+    "cote": 1.1,
+    "coup_envoi": "2026-10-24T14:00+00:00",
+    "en_direct": false
+   },
+   {
+    "match": "Atlético Madrid - Deportivo",
+    "competition": "espagne laliga",
+    "libelle": "Victoire de Atlético Madrid",
+    "cote": 1.25,
+    "coup_envoi": "2026-10-24T19:00+00:00",
+    "en_direct": false
+   }
+  ]
  }
 }
