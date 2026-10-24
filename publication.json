@@ -1,50 +1,10 @@
 {
- "jour": "2026-10-23",
- "fabrique_le": "2026-10-23T12:35:39+00:00",
- "matchs": [
-  {
-   "match": "FC Goa - Al Qadsia",
-   "message": "🏟️  **FC Goa**  🆚  **Al Qadsia**\n   🏆 AFC · Challenge League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 72 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 12 %     **1-0** · 9 %     **0-1** · 9 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (25 matchs au minimum), pas sur un classement. ⚠️ Leurs derniers matchs datent de plus de 45 jours (championnat à l'arrêt) : prudence sur ce match.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
-   "coup_envoi": "2026-10-23T17:30+00:00",
-   "en_direct": false
-  }
- ],
+ "jour": "2026-10-24",
+ "fabrique_le": "2026-10-24T07:37:55+00:00",
+ "matchs": [],
  "montante": {
   "mode": "jour",
-  "jour": "2026-10-23",
-  "pool": [
-   {
-    "match": "Fortis FC - Regar-TadAZ",
-    "competition": "afc challenge league",
-    "libelle": "Victoire de Regar-TadAZ",
-    "cote": 1.13,
-    "coup_envoi": "2026-10-23T13:25+00:00",
-    "en_direct": false
-   },
-   {
-    "match": "Pyunik Yerevan - Gandzasar Kapan",
-    "competition": "armenie division 1",
-    "libelle": "Victoire de Pyunik Yerevan",
-    "cote": 1.12,
-    "coup_envoi": "2026-10-23T15:00+00:00",
-    "en_direct": false
-   },
-   {
-    "match": "Al-Ittihad Aleppo - Paro FC",
-    "competition": "afc challenge league",
-    "libelle": "Al-Ittihad Aleppo ou Nul",
-    "cote": 1.13,
-    "coup_envoi": "2026-10-23T15:00+00:00",
-    "en_direct": false
-   },
-   {
-    "match": "Manchester City U21 - Stoke -21",
-    "competition": "angl premier league 2",
-    "libelle": "Victoire de Manchester City U21",
-    "cote": 1.15,
-    "coup_envoi": "2026-10-23T18:00+00:00",
-    "en_direct": false
-   }
-  ]
+  "jour": "2026-10-24",
+  "pool": []
  }
 }
