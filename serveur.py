@@ -576,7 +576,10 @@ def page_jour():
         '<img src="/img/p3.jpg" alt="" width="56" height="56">'
         '<div><b>Le guide du parieur débutant — gratuit</b>'
         '<p>Six sections pour ne pas griller sa bankroll en trois jours. '
-        '<a href="/livre-blanc/"><b>Recevoir le guide</b></a>.</p></div></div>'
+        '<a href="/livre-blanc/"><b>Recevoir le guide</b></a>.</p></div>'
+        '<div><b>Les 4 règles du parieur qui dure</b>'
+        '<p>Deux ou trois équipes, un ou deux types de pari, 3 % de bankroll, aucune décision '
+        'improvisée. <a href="/methode-4-regles/"><b>Lire la méthode</b></a>.</p></div></div>'
     )
     return _page("Pari Foot", corps, "jour",
                  titre_onglet="Pari Foot — guides de paris sportifs et pronostics par email",
@@ -613,7 +616,17 @@ def page_guides():
         corps = ('<div class="article" style="margin-top:26px"><h1>Les guides</h1>'
                  '<p class="chapeau">Les guides arrivent.</p></div>')
     else:
-        cartes = "".join(
+        # ⛔ LE LIVRE BLANC D'ABORD (José, 24/10/2026) : les 4 règles sont la porte d'entrée de la
+        # liste, pas un article de plus perdu en bas.
+        carte_livre = (
+            '<a class="carte" href="/methode-4-regles/">'
+            '<div class="vignette"><img src="/img/p3.jpg" alt="" loading="lazy" width="264" '
+            'height="192"></div>'
+            '<div><h3>Les 4 règles du parieur qui dure</h3>'
+            '<p>Deux ou trois équipes suivies, un ou deux types de pari, 3 % de bankroll, aucune '
+            'décision improvisée.</p>'
+            '<span class="meta">Livre blanc gratuit · 7 min</span></div></a>')
+        cartes = carte_livre + "".join(
             f'<a class="carte" href="/guides/{slug}/">'
             f'<div class="vignette"><img src="{_image(slug)}" alt="" loading="lazy" width="264" height="192"></div>'
             f'<div><h3>{html.escape(_maj(a["titre_onglet"]))}</h3>'
@@ -730,6 +743,121 @@ la durée ne parie pas plus, il parie mieux — et il accepte de ne pas parier d
 """
 
 
+METHODE_4_REGLES = """
+<h2>Pourquoi la plupart des parieurs perdent</h2>
+<p>Ce n'est presque jamais une question de malchance. C'est une question de dispersion : trop
+d'équipes, trop de types de paris, des mises qui grossissent après une perte, et des décisions prises
+à chaud. Un parieur dispersé mise sur ce qu'il voit passer ; un parieur qui dure mise sur ce qu'il
+connaît.</p>
+<p>Les quatre règles qui suivent ne promettent pas de gagner. Elles servent à <b>arrêter de perdre
+bêtement</b> — et c'est déjà la moitié du travail. Je les applique sur mon propre compte, avec mon
+argent.</p>
+
+<h2>Règle 1 — Ne parie que sur deux ou trois équipes</h2>
+<p>Un championnat compte vingt clubs, et tu n'en connais vraiment aucun. Suivre trois équipes, ce
+n'est pas une limitation : c'est la seule façon d'avoir un avis qui vaut mieux que celui du
+bookmaker.</p>
+<p>Comment les choisir :</p>
+<ul>
+<li>Des équipes que tu <b>regardes réellement</b> jouer, au moins une fois par mois.</li>
+<li>Des équipes dont tu peux citer le gardien, le buteur et le style de jeu sans regarder.</li>
+<li>Évite les clubs que tout le monde suit : leur cote est déjà parfaite. Cherche un club moins
+couvert, où l'information circule moins vite.</li>
+</ul>
+<p>Ce que tu suis, match après match : les compositions probables, les absences, la forme réelle
+(résultats et <b>manière</b> de gagner), et la façon dont l'équipe se comporte quand elle est menée.
+Cette fiche, tenue à la main, vaut tous les pronostics achetés.</p>
+
+<h2>Règle 2 — Un ou deux types de pari, pas plus</h2>
+<p>Chaque type de pari est un métier différent. Le over/under ne se lit pas comme un handicap, et le
+handicap asiatique ne se lit pas comme un résultat sec. En changeant d'angle tous les jours, tu
+n'accumules aucune expérience : tu recommences à zéro chaque week-end.</p>
+<p>Deux familles suffisent pour toute une saison :</p>
+<ul>
+<li><b>Le résultat ou le double chance</b> sur tes équipes — le plus lisible quand tu connais
+vraiment l'équipe.</li>
+<li><b>Le nombre de buts</b> (plus ou moins), qui dépend du style des deux équipes et se travaille
+bien avec une seule grille de lecture.</li>
+</ul>
+<p>Choisis-en une, garde l'autre pour plus tard, et note chaque pari dans la même case du carnet.
+C'est la répétition qui crée la compétence, pas la variété.</p>
+
+<h2>Règle 3 — Trois pour cent maximum par pari</h2>
+<p>C'est la règle qui sauve les trois autres. Ta bankroll, c'est l'argent que tu acceptes de perdre
+entièrement — jamais le loyer, jamais l'argent du commerce.</p>
+<ul>
+<li><b>3 % maximum</b> par pari, quelle que soit ta confiance. La confiance n'est pas une donnée.</li>
+<li>Après une perte, la mise suivante <b>ne change pas</b>. Doubler pour se refaire est le mécanisme
+exact qui vide les comptes.</li>
+<li>Une perte ne se rattrape pas le même jour : elle se rattrape sur trente paris, ou pas du tout.</li>
+</ul>
+<p>Exemple concret avec 3 % :</p>
+<ul>
+<li>Bankroll 25 000 FCFA → mise maximum <b>750 FCFA</b></li>
+<li>Bankroll 50 000 FCFA → mise maximum <b>1 500 FCFA</b></li>
+<li>Bankroll 100 000 FCFA → mise maximum <b>3 000 FCFA</b></li>
+</ul>
+<p>À 3 %, il faut vingt pertes d'affilée pour perdre la moitié de la bankroll. Vingt pertes d'affilée
+arrivent à tout le monde — c'est pour ça que la règle existe.</p>
+
+<h2>Règle 4 — Jamais de pari improvisé, y compris en direct</h2>
+<p>Le pari en direct est le plus dangereux du marché : les cotes bougent en secondes, la décision se
+prend à chaud, et l'émotion remplace l'analyse. Il est pourtant jouable — à une condition stricte :
+<b>la décision est prise avant le coup d'envoi</b>.</p>
+<p>Concrètement, avant le match, j'écris :</p>
+<ul>
+<li>la situation que j'attends (exemple : « si mon équipe est menée à la mi-temps, je prends son
+double chance ») ;</li>
+<li>la <b>cote minimale</b> en dessous de laquelle je ne joue pas ;</li>
+<li>la fenêtre de tir : à quelle minute j'arrête de regarder ;</li>
+<li>la mise, calculée d'avance à 3 %.</li>
+</ul>
+<p>Si la situation n'arrive pas, <b>je ne parie pas</b>. Un pari qui n'était pas prévu n'est pas un
+pari, c'est une réaction. Et après un but encaissé, la cote a déjà intégré l'information : c'est le
+pire moment pour entrer.</p>
+
+<h2>La feuille qui rend tout vérifiable</h2>
+<p>Une règle non notée est une règle qui n'existe pas. Pour chaque pari, quatre lignes suffisent :
+la date, l'équipe (parmi tes trois), le type de pari et la cote, la mise, le résultat.</p>
+<p>Au bout de trente paris, tu sauras deux choses que personne ne peut te dire à ta place : si ton
+avantage est réel, et si tu respectes vraiment ta mise. La plupart des parieurs découvrent à ce
+moment-là qu'ils misaient deux fois plus que ce qu'ils croyaient.</p>
+
+<h2>Les erreurs qui coûtent le plus cher</h2>
+<ul>
+<li><b>Le combiné à cinq sélections</b> — les cotes se multiplient, les probabilités se divisent.</li>
+<li><b>Parier sur son équipe de cœur</b> — on ne parie pas avec un maillot, on parie avec une cote.</li>
+<li><b>Changer d'équipes après deux pertes</b> — c'est repartir à zéro au pire moment.</li>
+<li><b>Augmenter la mise après une bonne série</b> — la série ne dit rien du prochain match.</li>
+</ul>
+
+<h2>Ce que ces quatre règles ne feront pas</h2>
+<p>Elles ne transformeront pas le pari en salaire. Le bookmaker garde une marge sur chaque cote :
+sur la durée, la majorité des parieurs perd, et aucune méthode ne change ce fait. Ces règles servent
+à faire partie des exceptions, et surtout à ne jamais perdre plus que prévu.</p>
+<p><small>Jeu responsable · interdit aux mineurs · ne joue que ce que tu peux perdre. Si le pari
+cesse d'être un divertissement, arrête et parles-en à quelqu'un.</small></p>
+"""
+
+
+def page_quatre_regles():
+    corps = ('<div class="article" style="margin-top:26px">'
+             '<p class="fil"><a href="/">Accueil</a> \u203a Guide gratuit</p>'
+             '<h1>Les 4 r\u00e8gles du parieur qui dure</h1>'
+             '<p class="chapeau">Deux ou trois \u00e9quipes, un ou deux types de pari, 3 % de bankroll, '
+             'aucune d\u00e9cision improvis\u00e9e. La m\u00e9thode que j\'applique avec mon propre argent.</p>'
+             + FORMULAIRE +
+             '<div class="entete-meta"><img src="/img/auteur.jpg" alt="Jos\u00e9 Ledanite" width="34" height="34">'
+             '<span><b>Jos\u00e9 Ledanite</b> \u00b7 \u00e9dition 2026 \u00b7 7 min de lecture</span></div>'
+             + METHODE_4_REGLES +
+             '</div>')
+    return _page("Les 4 r\u00e8gles du parieur qui dure", corps, "guides",
+                 titre_onglet="Les 4 r\u00e8gles du parieur qui dure \u2014 guide gratuit",
+                 description="La m\u00e9thode en quatre r\u00e8gles pour durer aux paris sportifs : deux ou "
+                             "trois \u00e9quipes suivies, un ou deux types de pari, 3 % de bankroll, "
+                             "aucune d\u00e9cision improvis\u00e9e.")
+
+
 def page_livre_blanc():
     corps = ('<div class="article" style="margin-top:26px">'
              '<p class="fil"><a href="/">Accueil</a> › Guide gratuit</p>'
@@ -801,7 +929,7 @@ def sitemap():
     """LA CARTE DU SITE — indispensable : sans elle, Google met des semaines à trouver les guides.
     Le domaine est celui du déploiement ; si José change d'adresse, cette ligne suit."""
     base = os.environ.get("URL_PUBLIQUE", "https://pari-foot.onrender.com").rstrip("/")
-    pages = ["/", "/guides", "/livre-blanc"] + [f"/guides/{s}" for s in articles.ARTICLES]
+    pages = ["/", "/guides", "/livre-blanc", "/methode-4-regles"] + [f"/guides/{s}" for s in articles.ARTICLES]
     urls = "".join(f"<url><loc>{base}{p}</loc></url>" for p in pages)
     return ('<?xml version="1.0" encoding="UTF-8"?>'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + urls + "</urlset>")
@@ -994,6 +1122,9 @@ def fabriquer_serveur(port=8080):
                 return
             if chemin in ("/livre-blanc/merci", "/livre-blanc/merci/"):
                 self._envoyer(page_merci(), "text/html; charset=utf-8")
+                return
+            if chemin in ("/methode-4-regles", "/methode-4-regles/"):
+                self._envoyer(page_quatre_regles(), "text/html; charset=utf-8")
                 return
             if chemin == "/livre-blanc":
                 self._envoyer(page_livre_blanc(), "text/html; charset=utf-8")
