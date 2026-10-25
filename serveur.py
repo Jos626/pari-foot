@@ -877,9 +877,11 @@ def page_livre_blanc():
 
 def page_merci():
     corps = ('<div class="article" style="margin-top:40px">'
-             '<h1>C\'est envoyé.</h1>'
-             '<p class="chapeau">Le guide part dans ta boîte dans la minute. S\'il n\'arrive pas, '
-             'regarde dans les spams et marque-le comme « non spam ».</p>'
+             '<h1>C\'est noté, tes 4 règles partent par email.</h1>'
+             '<p class="chapeau">L\'email s\'appelle <b>« Tes 4 règles du parieur qui dure »</b> et '
+             'contient les quatre règles, lisibles tout de suite, plus le lien du guide complet. '
+             'S\'il n\'est pas là dans un quart d\'heure, regarde dans les spams et marque-le comme '
+             '« non spam » — sinon tu ne recevras pas non plus les pronostics.</p>'
              '<p><a href="/guides/"><b>Lire les guides en attendant →</b></a></p></div>')
     return _page("C'est envoyé", corps, "guides", titre_onglet="Guide envoyé — Pari Foot")
 
