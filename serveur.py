@@ -578,8 +578,9 @@ def page_jour():
         '<p>Six sections pour ne pas griller sa bankroll en trois jours. '
         '<a href="/livre-blanc/"><b>Recevoir le guide</b></a>.</p></div>'
         '<div><b>Les 4 règles du parieur qui dure</b>'
-        '<p>Deux ou trois équipes, un ou deux types de pari, 3 % de bankroll, aucune décision '
-        'improvisée. <a href="/methode-4-regles/"><b>Lire la méthode</b></a>.</p></div></div>'
+        '<p>Deux ou trois équipes, un ou deux types de pari, 3 % de bankroll, et jamais un pari '
+        "d'avant-match : on parie en direct, quand on voit le match. "
+        '<a href="/methode-4-regles/"><b>Lire la méthode</b></a>.</p></div></div>'
     )
     return _page("Pari Foot", corps, "jour",
                  titre_onglet="Pari Foot — guides de paris sportifs et pronostics par email",
@@ -623,8 +624,8 @@ def page_guides():
             '<div class="vignette"><img src="/img/p3.jpg" alt="" loading="lazy" width="264" '
             'height="192"></div>'
             '<div><h3>Les 4 règles du parieur qui dure</h3>'
-            '<p>Deux ou trois équipes suivies, un ou deux types de pari, 3 % de bankroll, aucune '
-            'décision improvisée.</p>'
+            '<p>Deux ou trois équipes suivies, un ou deux types de pari, 3 % de bankroll, et '
+            'seulement des paris en direct, sur ces équipes.</p>'
             '<span class="meta">Livre blanc gratuit · 7 min</span></div></a>')
         cartes = carte_livre + "".join(
             f'<a class="carte" href="/guides/{slug}/">'
@@ -800,21 +801,18 @@ exact qui vide les comptes.</li>
 <p>À 3 %, il faut vingt pertes d'affilée pour perdre la moitié de la bankroll. Vingt pertes d'affilée
 arrivent à tout le monde — c'est pour ça que la règle existe.</p>
 
-<h2>Règle 4 — Jamais de pari improvisé, y compris en direct</h2>
-<p>Le pari en direct est le plus dangereux du marché : les cotes bougent en secondes, la décision se
-prend à chaud, et l'émotion remplace l'analyse. Il est pourtant jouable — à une condition stricte :
-<b>la décision est prise avant le coup d'envoi</b>.</p>
-<p>Concrètement, avant le match, j'écris :</p>
+<h2>Règle 4 — Uniquement en direct, et seulement sur tes deux ou trois équipes</h2>
+<p>Aucun pari avant le coup d'envoi. Tu regardes le match, et tu paries quand tu vois ce que tu
+attendais : une équipe qui domine sans marquer, un rythme qui change, une cote qui s'ouvre. Le pari
+d'avant-match se prend à l'aveugle, sur des informations que tout le monde a déjà.</p>
+<p>Le direct ne donne pas le droit d'improviser pour autant : tes deux ou trois équipes, un ou deux
+types de pari, 3 % de mise. Le direct sert à <b>voir</b>, pas à tenter.</p>
+<p>Ce que ça change, concrètement :</p>
 <ul>
-<li>la situation que j'attends (exemple : « si mon équipe est menée à la mi-temps, je prends son
-double chance ») ;</li>
-<li>la <b>cote minimale</b> en dessous de laquelle je ne joue pas ;</li>
-<li>la fenêtre de tir : à quelle minute j'arrête de regarder ;</li>
-<li>la mise, calculée d'avance à 3 %.</li>
+<li>tu ne paries jamais un match que tu ne peux pas regarder ;</li>
+<li>si la situation attendue n'arrive pas, tu ne paries pas — un match sans pari est un bon match ;</li>
+<li>la mise reste décidée d'avance à 3 %, même à chaud.</li>
 </ul>
-<p>Si la situation n'arrive pas, <b>je ne parie pas</b>. Un pari qui n'était pas prévu n'est pas un
-pari, c'est une réaction. Et après un but encaissé, la cote a déjà intégré l'information : c'est le
-pire moment pour entrer.</p>
 
 <h2>La feuille qui rend tout vérifiable</h2>
 <p>Une règle non notée est une règle qui n'existe pas. Pour chaque pari, quatre lignes suffisent :
@@ -845,7 +843,7 @@ def page_quatre_regles():
              '<p class="fil"><a href="/">Accueil</a> \u203a Guide gratuit</p>'
              '<h1>Les 4 r\u00e8gles du parieur qui dure</h1>'
              '<p class="chapeau">Deux ou trois \u00e9quipes, un ou deux types de pari, 3 % de bankroll, '
-             'aucune d\u00e9cision improvis\u00e9e. La m\u00e9thode que j\'applique avec mon propre argent.</p>'
+             'uniquement des paris en direct, sur les \u00e9quipes que je suis. La m\u00e9thode que j\'applique avec mon propre argent.</p>'
              + FORMULAIRE +
              '<div class="entete-meta"><img src="/img/auteur.jpg" alt="Jos\u00e9 Ledanite" width="34" height="34">'
              '<span><b>Jos\u00e9 Ledanite</b> \u00b7 \u00e9dition 2026 \u00b7 7 min de lecture</span></div>'
@@ -855,7 +853,7 @@ def page_quatre_regles():
                  titre_onglet="Les 4 r\u00e8gles du parieur qui dure \u2014 guide gratuit",
                  description="La m\u00e9thode en quatre r\u00e8gles pour durer aux paris sportifs : deux ou "
                              "trois \u00e9quipes suivies, un ou deux types de pari, 3 % de bankroll, "
-                             "aucune d\u00e9cision improvis\u00e9e.")
+                             "et uniquement des paris en direct, sur les \u00e9quipes suivies.")
 
 
 def page_livre_blanc():
