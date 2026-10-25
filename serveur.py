@@ -578,7 +578,7 @@ def page_jour():
         '<p>Six sections pour ne pas griller sa bankroll en trois jours. '
         '<a href="/livre-blanc/"><b>Recevoir le guide</b></a>.</p></div>'
         '<div><b>Les 4 règles du parieur qui dure</b>'
-        '<p>Deux ou trois équipes, un ou deux types de pari, 3 % de bankroll, et jamais un pari '
+        '<p>Deux ou trois équipes, un ou deux types de pari, 3 % du capital, et jamais un pari '
         "d'avant-match : on parie en direct, quand on voit le match. "
         '<a href="/methode-4-regles/"><b>Lire la méthode</b></a>.</p></div></div>'
     )
@@ -624,7 +624,7 @@ def page_guides():
             '<div class="vignette"><img src="/img/p3.jpg" alt="" loading="lazy" width="264" '
             'height="192"></div>'
             '<div><h3>Les 4 règles du parieur qui dure</h3>'
-            '<p>Deux ou trois équipes suivies, un ou deux types de pari, 3 % de bankroll, et '
+            '<p>Deux ou trois équipes suivies, un ou deux types de pari, 3 % du capital, et '
             'seulement des paris en direct, sur ces équipes.</p>'
             '<span class="meta">Livre blanc gratuit · 7 min</span></div></a>')
         cartes = carte_livre + "".join(
@@ -783,23 +783,26 @@ bien avec une seule grille de lecture.</li>
 <p>Choisis-en une, garde l'autre pour plus tard, et note chaque pari dans la même case du carnet.
 C'est la répétition qui crée la compétence, pas la variété.</p>
 
-<h2>Règle 3 — Trois pour cent maximum par pari</h2>
-<p>C'est la règle qui sauve les trois autres. Ta bankroll, c'est l'argent que tu acceptes de perdre
+<h2>Règle 3 — 3 % du capital, jamais plus</h2>
+<p>C'est la règle qui sauve les trois autres. Le capital, c'est l'argent que tu acceptes de perdre
 entièrement — jamais le loyer, jamais l'argent du commerce.</p>
+<p><b>Ta mise, c'est 3 % du capital et pas un franc de plus.</b> Pour 100 000 FCFA de capital :</p>
 <ul>
-<li><b>3 % maximum</b> par pari, quelle que soit ta confiance. La confiance n'est pas une donnée.</li>
+<li><b>3 % = 3 000 FCFA</b> par pari, au maximum, quelle que soit ta confiance. La confiance n'est pas
+une donnée.</li>
 <li>Après une perte, la mise suivante <b>ne change pas</b>. Doubler pour se refaire est le mécanisme
 exact qui vide les comptes.</li>
 <li>Une perte ne se rattrape pas le même jour : elle se rattrape sur trente paris, ou pas du tout.</li>
 </ul>
-<p>Exemple concret avec 3 % :</p>
+<p>Le calcul, sur les trois capitaux les plus courants :</p>
 <ul>
-<li>Bankroll 25 000 FCFA → mise maximum <b>750 FCFA</b></li>
-<li>Bankroll 50 000 FCFA → mise maximum <b>1 500 FCFA</b></li>
-<li>Bankroll 100 000 FCFA → mise maximum <b>3 000 FCFA</b></li>
+<li>Capital 25 000 FCFA → mise maximum <b>750 FCFA</b></li>
+<li>Capital 50 000 FCFA → mise maximum <b>1 500 FCFA</b></li>
+<li>Capital 100 000 FCFA → mise maximum <b>3 000 FCFA</b></li>
 </ul>
-<p>À 3 %, il faut vingt pertes d'affilée pour perdre la moitié de la bankroll. Vingt pertes d'affilée
-arrivent à tout le monde — c'est pour ça que la règle existe.</p>
+<p>C'est ce qui protège le capital : à 3 %, il faut <b>vingt pertes d'affilée</b> pour perdre la
+moitié de son capital. Vingt pertes d'affilée arrivent à tout le monde — c'est pour ça que la règle
+existe.</p>
 
 <h2>Règle 4 — Uniquement en direct, et seulement sur tes deux ou trois équipes</h2>
 <p>Aucun pari avant le coup d'envoi. Tu regardes le match, et tu paries quand tu vois ce que tu
@@ -842,8 +845,14 @@ def page_quatre_regles():
     corps = ('<div class="article" style="margin-top:26px">'
              '<p class="fil"><a href="/">Accueil</a> \u203a Guide gratuit</p>'
              '<h1>Les 4 r\u00e8gles du parieur qui dure</h1>'
-             '<p class="chapeau">Deux ou trois \u00e9quipes, un ou deux types de pari, 3 % de bankroll, '
-             'uniquement des paris en direct, sur les \u00e9quipes que je suis. La m\u00e9thode que j\'applique avec mon propre argent.</p>'
+             '<p class="chapeau">Deux ou trois équipes, un ou deux types de pari, 3 % du capital, '
+             'uniquement des paris en direct, sur les équipes que je suis. La méthode que j\'applique avec mon propre argent.</p>'
+             # ⛔ « LE TUTORIEL EST TROP COURT » (José, 25/10/2026) : la page reste le résumé, et
+             # l'ebook de 17 pages se télécharge ici, sans inscription.
+             '<p><a class="bouton" href="/fichiers/les-4-regles-du-parieur.pdf" download>'
+             '📥 Télécharger l\'ebook (PDF, 17 pages)</a></p>'
+             '<p class="aide">Gratuit, sans inscription. Le format long de cette page : les chiffres, '
+             'la feuille de suivi, les erreurs qui coûtent cher.</p>'
              + FORMULAIRE +
              '<div class="entete-meta"><img src="/img/auteur.jpg" alt="Jos\u00e9 Ledanite" width="34" height="34">'
              '<span><b>Jos\u00e9 Ledanite</b> \u00b7 \u00e9dition 2026 \u00b7 7 min de lecture</span></div>'
@@ -852,7 +861,7 @@ def page_quatre_regles():
     return _page("Les 4 r\u00e8gles du parieur qui dure", corps, "guides",
                  titre_onglet="Les 4 r\u00e8gles du parieur qui dure \u2014 guide gratuit",
                  description="La m\u00e9thode en quatre r\u00e8gles pour durer aux paris sportifs : deux ou "
-                             "trois \u00e9quipes suivies, un ou deux types de pari, 3 % de bankroll, "
+                             "trois \u00e9quipes suivies, un ou deux types de pari, 3 % du capital, "
                              "et uniquement des paris en direct, sur les \u00e9quipes suivies.")
 
 
@@ -880,6 +889,8 @@ def page_merci():
              'contient les quatre règles, lisibles tout de suite, plus le lien du guide complet. '
              'S\'il n\'est pas là dans un quart d\'heure, regarde dans les spams et marque-le comme '
              '« non spam » — sinon tu ne recevras pas non plus les pronostics.</p>'
+             '<p><a class="bouton" href="/fichiers/les-4-regles-du-parieur.pdf" download>'
+             "📥 Télécharger l'ebook (PDF, 17 pages)</a></p>"
              '<p><a href="/guides/"><b>Lire les guides en attendant →</b></a></p></div>')
     return _page("C'est envoyé", corps, "guides", titre_onglet="Guide envoyé — Pari Foot")
 
@@ -968,7 +979,7 @@ def fabriquer_serveur(port=8080):
         def log_message(self, *a):
             pass
 
-        def _envoyer(self, donnees, type_mime, code=200):
+        def _envoyer(self, donnees, type_mime, code=200, entete_plus=None):
             if isinstance(donnees, str):
                 donnees = donnees.encode()
             self.send_response(code)
@@ -980,6 +991,8 @@ def fabriquer_serveur(port=8080):
             # ?moi=1 : l'appareil de José s'exclut lui-même des compteurs, définitivement
             if getattr(self, "_cookie_moi", False):
                 self.send_header("Set-Cookie", "pk_moi=1; Max-Age=31536000; Path=/; SameSite=Lax")
+            for cle, valeur in (entete_plus or {}).items():
+                self.send_header(cle, valeur)
             self.send_header("Content-Length", str(len(donnees)))
             self.end_headers()
             self.wfile.write(donnees)
@@ -1193,6 +1206,22 @@ def fabriquer_serveur(port=8080):
                 try:
                     with open(fichier, "rb") as f:
                         self._envoyer(f.read(), "image/jpeg")
+                except OSError:
+                    self._envoyer("introuvable", "text/plain", 404)
+                return
+            if chemin.startswith("/fichiers/") and chemin.endswith(".pdf"):
+                # ⛔ L'EBOOK SE TÉLÉCHARGE (José, 25/10/2026) : « j'ai parlé plutôt d'un ebook que le
+                # client peut télécharger à la réception du mail ». Même garde que /img : nom simple,
+                # chemin résolu vérifié, sinon on sort du dossier.
+                fichier = os.path.realpath(os.path.join(ICI, "fichiers", os.path.basename(chemin)))
+                if not fichier.startswith(os.path.realpath(os.path.join(ICI, "fichiers")) + os.sep):
+                    self._envoyer("introuvable", "text/plain", 404)
+                    return
+                try:
+                    with open(fichier, "rb") as f:
+                        self._envoyer(f.read(), "application/pdf",
+                                      entete_plus={"Content-Disposition":
+                                                   f'attachment; filename="{os.path.basename(fichier)}"'})
                 except OSError:
                     self._envoyer("introuvable", "text/plain", 404)
                 return
