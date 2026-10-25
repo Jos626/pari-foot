@@ -21,6 +21,19 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 FICHIER = os.path.join(ICI, "trafic.json")
 
 VERROU = threading.Lock()
+# ⛔ « DE VRAIES VISITES OU C'EST MOI ? » (José, 25/10/2026) : le compteur a affiché 2 029 vues de
+# la page d'accueil — c'était son propre téléphone qui rechargeait la page. On ne compte donc plus
+# qu'UNE visite par visiteur toutes les 30 minutes. Le visiteur est identifié par une empreinte
+# (IP + navigateur) gardée EN MÉMOIRE seulement, jamais écrite sur le disque : aucune donnée
+# personnelle n'est conservée, et le fichier des compteurs reste anonyme.
+_DERNIERS = {}
+FENETRE = 1800
+
+
+def _empreinte(ip, agent):
+    import hashlib
+    brut = f"{(ip or '')}|{(agent or '')[:120]}".encode("utf-8", "ignore")
+    return hashlib.sha1(brut).hexdigest()[:16]
 
 
 def _jour():
@@ -97,7 +110,7 @@ def _provenance(referer):
     return "autre site"
 
 
-def compter(chemin, referer="", agent=""):
+def compter(chemin, referer="", agent="", ip=""):
     """Une page vue. On garde le détail par jour, par page ET par provenance.
 
     « 40 visites » ne dit pas quoi corriger ; « 40 visites dont 31 sur le guide VPN, venues de
@@ -110,6 +123,15 @@ def compter(chemin, referer="", agent=""):
     """
     if "pepite" in (agent or "").lower():
         return
+    # une visite par visiteur toutes les 30 minutes (rechargements et rafraîchissements ignorés)
+    maintenant = time.time()
+    cle_visiteur = _empreinte(ip, agent)
+    if maintenant - _DERNIERS.get(cle_visiteur, 0) < FENETRE:
+        return
+    _DERNIERS[cle_visiteur] = maintenant
+    if len(_DERNIERS) > 5000:                       # ménage : on ne garde pas une liste sans fin
+        for k in [k for k, t in _DERNIERS.items() if maintenant - t > FENETRE]:
+            _DERNIERS.pop(k, None)
     with VERROU:
         j = _jour()
         _ETAT["jours"][j] = int(_ETAT["jours"].get(j) or 0) + 1

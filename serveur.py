@@ -977,6 +977,9 @@ def fabriquer_serveur(port=8080):
             self.send_header("X-Content-Type-Options", "nosniff")
             self.send_header("X-Frame-Options", "SAMEORIGIN")
             self.send_header("Referrer-Policy", "no-referrer-when-downgrade")
+            # ?moi=1 : l'appareil de José s'exclut lui-même des compteurs, définitivement
+            if getattr(self, "_cookie_moi", False):
+                self.send_header("Set-Cookie", "pk_moi=1; Max-Age=31536000; Path=/; SameSite=Lax")
             self.send_header("Content-Length", str(len(donnees)))
             self.end_headers()
             self.wfile.write(donnees)
@@ -1074,8 +1077,15 @@ def fabriquer_serveur(port=8080):
             # 31 sur le guide VPN » le dit.
             if not chemin.startswith(("/icone", "/img", "/manifeste", "/publication.json", "/trafic.json",
                                       "/sitemap", "/robots")):
-                trafic.compter(chemin, self.headers.get("Referer") or "",
-                               self.headers.get("User-Agent") or "")
+                # ⛔ SON PROPRE TÉLÉPHONE NE COMPTE PAS (José, 25/10/2026) : ouvrir l'adresse une
+                # fois avec ?moi=1 pose un cookie qui exclut cet appareil des compteurs.
+                cookies = self.headers.get("Cookie") or ""
+                if "pk_moi=1" not in cookies and "moi=1" not in (self.path or ""):
+                    trafic.compter(chemin, self.headers.get("Referer") or "",
+                                   self.headers.get("User-Agent") or "",
+                                   (self.client_address[0] if self.client_address else ""))
+                if "moi=1" in (self.path or ""):
+                    self._cookie_moi = True
 
             if chemin == "/trafic.json":
                 import json as _json
