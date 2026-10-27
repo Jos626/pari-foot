@@ -1,17 +1,51 @@
 {
- "jour": "2026-10-26",
- "fabrique_le": "2026-10-26T16:06:36+00:00",
- "matchs": [
-  {
-   "match": "CSKA Sofia - Ludogorets Razgrad",
-   "message": "🏟️  **CSKA Sofia**  🆚  **Ludogorets Razgrad**\n   🇧🇬 Bulgarie · First Professional League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 72 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 12 %     **1-0** · 9 %     **2-1** · 9 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (11 matchs au minimum), pas sur un classement. Compétition : First Professional League.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
-   "coup_envoi": "2026-10-26T17:30+00:00",
-   "en_direct": false
-  }
- ],
+ "jour": "2026-10-27",
+ "fabrique_le": "2026-10-27T07:32:59+00:00",
+ "matchs": [],
  "montante": {
   "mode": "jour",
-  "jour": "2026-10-26",
-  "pool": []
+  "jour": "2026-10-27",
+  "pool": [
+   {
+    "match": "Lazio -20 - Sudtirol -19",
+    "competition": "italie primavera cup",
+    "libelle": "Victoire de Lazio -20",
+    "cote": 1.11,
+    "coup_envoi": "2026-10-27T10:00+00:00",
+    "en_direct": false
+   },
+   {
+    "match": "Johor Darul - Port",
+    "competition": "ligue des champions asiatique",
+    "libelle": "Victoire de Johor Darul",
+    "cote": 1.2,
+    "coup_envoi": "2026-10-27T10:00+00:00",
+    "en_direct": false
+   },
+   {
+    "match": "Etimesgut - Gazisehir Gaziantep FK",
+    "competition": "turquie coupe",
+    "libelle": "Victoire de Gazisehir Gaziantep FK",
+    "cote": 1.22,
+    "coup_envoi": "2026-10-27T10:30+00:00",
+    "en_direct": false
+   },
+   {
+    "match": "Dacia Buiucani - Univer-Oguzsport",
+    "competition": "moldavie coupe",
+    "libelle": "Victoire de Dacia Buiucani",
+    "cote": 1.18,
+    "coup_envoi": "2026-10-27T11:00+00:00",
+    "en_direct": false
+   },
+   {
+    "match": "Milsami - Ungheni",
+    "competition": "moldavie coupe",
+    "libelle": "Victoire de Milsami",
+    "cote": 1.2,
+    "coup_envoi": "2026-10-27T14:00+00:00",
+    "en_direct": false
+   }
+  ]
  }
 }
