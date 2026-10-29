@@ -1,10 +1,19 @@
 {
- "jour": "2026-10-27",
- "fabrique_le": "2026-10-27T16:03:14+00:00",
+ "jour": "2026-10-29",
+ "fabrique_le": "2026-10-29T12:33:13+00:00",
  "matchs": [],
  "montante": {
   "mode": "jour",
-  "jour": "2026-10-27",
-  "pool": []
+  "jour": "2026-10-29",
+  "pool": [
+   {
+    "match": "Fountain Gate - Simba",
+    "competition": "tanzanie premier league",
+    "libelle": "Victoire de Simba",
+    "cote": 1.19,
+    "coup_envoi": "2026-10-29T13:15+00:00",
+    "en_direct": false
+   }
+  ]
  }
 }
