@@ -1,17 +1,32 @@
 {
  "jour": "2026-10-29",
- "fabrique_le": "2026-10-29T12:33:13+00:00",
- "matchs": [],
+ "fabrique_le": "2026-10-29T16:03:20+00:00",
+ "matchs": [
+  {
+   "match": "Al-Nassr - Al Kholood",
+   "message": "🏟️  **Al Nassr FC**  🆚  **Al Kholood**\n   🇸🇦 Arabie saoudite · Pro League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 80 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 9 %     **2-1** · 8 %     **1-2** · 8 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (8 matchs au minimum), pas sur un classement. Compétition : Saudi Pro League.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-29T18:00+00:00",
+   "en_direct": false
+  }
+ ],
  "montante": {
   "mode": "jour",
   "jour": "2026-10-29",
   "pool": [
    {
-    "match": "Fountain Gate - Simba",
-    "competition": "tanzanie premier league",
-    "libelle": "Victoire de Simba",
+    "match": "Kuopio - Gnistan",
+    "competition": "finlande veikkausliiga",
+    "libelle": "Kuopio PS ou Nul",
+    "cote": 1.1,
+    "coup_envoi": "2026-10-29T17:00+00:00",
+    "en_direct": false
+   },
+   {
+    "match": "Al-Nassr - Al Kholood",
+    "competition": "arabie saoudite pl",
+    "libelle": "Victoire de Al-Nassr",
     "cote": 1.19,
-    "coup_envoi": "2026-10-29T13:15+00:00",
+    "coup_envoi": "2026-10-29T18:00+00:00",
     "en_direct": false
    }
   ]
