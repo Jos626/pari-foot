@@ -1,32 +1,48 @@
 {
- "jour": "2026-10-29",
- "fabrique_le": "2026-10-29T16:03:20+00:00",
+ "jour": "2026-10-31",
+ "fabrique_le": "2026-10-31T17:10:33+00:00",
  "matchs": [
   {
-   "match": "Al-Nassr - Al Kholood",
-   "message": "🏟️  **Al Nassr FC**  🆚  **Al Kholood**\n   🇸🇦 Arabie saoudite · Pro League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 80 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 9 %     **2-1** · 8 %     **1-2** · 8 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (8 matchs au minimum), pas sur un classement. Compétition : Saudi Pro League.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
-   "coup_envoi": "2026-10-29T18:00+00:00",
+   "match": "Betis - Malaga",
+   "message": "🏟️  **Betis**  🆚  **Malaga**\n   🇪🇸 Espagne · LaLiga\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 79 % de chances\n\n🟢 DOUBLE CHANCE 1X (Betis gagne ou match nul)\n     📈 74 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **2-1** · 10 %     **2-0** · 9 %     **1-1** · 9 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-31T17:30+00:00",
+   "en_direct": false
+  },
+  {
+   "match": "PSV Eindhoven - Willem II",
+   "message": "🏟️  **PSV Eindhoven**  🆚  **Willem II**\n   🇳🇱 Pays-Bas · Eredivisie\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢🟢 PLUS DE 1,5 BUT (2 buts ou plus)\n     📈 81 % de chances\n\n🟢🟢 DOUBLE CHANCE 1X (PSV Eindhoven gagne ou match nul)\n     📈 87 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **4-1** · 7 %     **3-1** · 7 %     **4-0** · 6 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-31T17:45+00:00",
+   "en_direct": false
+  },
+  {
+   "match": "Albacete - Sabadell",
+   "message": "🏟️  **Albacete**  🆚  **Sabadell**\n   🇪🇸 Espagne · LaLiga2\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 74 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-0** · 14 %     **1-1** · 13 %     **0-0** · 11 %\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-31T20:00+00:00",
+   "en_direct": false
+  },
+  {
+   "match": "Kruger United - Richards Bay",
+   "message": "🏟️  **Kruger United**  🆚  **Richards Bay**\n   🇿🇦 Afrique du Sud · Premier Soccer League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 73 % de chances\n\n🟢 DOUBLE CHANCE X2 (match nul ou Richards Bay gagne)\n     📈 71 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 12 %     **0-1** · 11 %     **1-2** · 9 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (7 matchs au minimum), pas sur un classement. Compétition : Premier Soccer League. ⚠️ Je n'ai que 7 matchs récents de ces équipes : mon avis est à prendre avec prudence — joue petit, ou passe ton tour.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-31T18:15+00:00",
+   "en_direct": false
+  },
+  {
+   "match": "Mamelodi Sundowns - Durban City FC",
+   "message": "🏟️  **Mamelodi Sundowns FC**  🆚  **Durban City**\n   🇿🇦 Afrique du Sud · Premier Soccer League\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 73 % de chances\n\n🟢 DOUBLE CHANCE 1X (Mamelodi Sundowns FC gagne ou match nul)\n     📈 70 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-0** · 13 %     **1-1** · 12 %     **2-0** · 10 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (10 matchs au minimum), pas sur un classement. Compétition : Premier Soccer League.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
+   "coup_envoi": "2026-10-31T18:15+00:00",
    "en_direct": false
   }
  ],
  "montante": {
   "mode": "jour",
-  "jour": "2026-10-29",
+  "jour": "2026-10-31",
   "pool": [
    {
-    "match": "Kuopio - Gnistan",
-    "competition": "finlande veikkausliiga",
-    "libelle": "Kuopio PS ou Nul",
+    "match": "Barcelone - Alaves",
+    "competition": "espagne laliga",
+    "libelle": "Victoire de Barcelone",
     "cote": 1.1,
-    "coup_envoi": "2026-10-29T17:00+00:00",
-    "en_direct": false
-   },
-   {
-    "match": "Al-Nassr - Al Kholood",
-    "competition": "arabie saoudite pl",
-    "libelle": "Victoire de Al-Nassr",
-    "cote": 1.19,
-    "coup_envoi": "2026-10-29T18:00+00:00",
+    "coup_envoi": "2026-10-31T20:00+00:00",
     "en_direct": false
    }
   ]
