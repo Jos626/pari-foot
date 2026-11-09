@@ -1,35 +1,10 @@
 {
  "jour": "2026-11-09",
- "fabrique_le": "2026-11-09T07:33:51+00:00",
+ "fabrique_le": "2026-11-09T22:56:14+00:00",
  "matchs": [],
  "montante": {
   "mode": "jour",
   "jour": "2026-11-09",
-  "pool": [
-   {
-    "match": "CD Fas - Fuerte S.F.",
-    "competition": "salvador primera",
-    "libelle": "Victoire de CD Fas",
-    "cote": 1.23,
-    "coup_envoi": "2026-11-09T01:00+00:00",
-    "en_direct": false
-   },
-   {
-    "match": "Universitario - Cesar Vallejo Moquegua",
-    "competition": "perou liga 1",
-    "libelle": "Victoire de Universitario",
-    "cote": 1.19,
-    "coup_envoi": "2026-11-09T01:30+00:00",
-    "en_direct": false
-   },
-   {
-    "match": "Marathon - CD Choloma",
-    "competition": "honduras liga nacional",
-    "libelle": "Victoire de Marathon",
-    "cote": 1.2,
-    "coup_envoi": "2026-11-09T01:30+00:00",
-    "en_direct": false
-   }
-  ]
+  "pool": []
  }
 }
