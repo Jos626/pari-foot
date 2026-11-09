@@ -1,44 +1,33 @@
 {
- "jour": "2026-11-08",
- "fabrique_le": "2026-11-08T01:39:09+00:00",
- "matchs": [
-  {
-   "match": "Goias - Ponte Preta",
-   "message": "🏟️  **Goias**  🆚  **Ponte Preta**\n   🇧🇷 Brésil · Série B\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 73 % de chances\n\n🟢 DOUBLE CHANCE 1X (Goias gagne ou match nul)\n     📈 72 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-0** · 14 %     **1-1** · 12 %     **2-0** · 11 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (11 matchs au minimum), pas sur un classement. Compétition : Série B.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
-   "coup_envoi": "2026-11-08T22:15+00:00",
-   "en_direct": false
-  },
-  {
-   "match": "Ceara - America Mineiro",
-   "message": "🏟️  **Ceara**  🆚  **América Mineiro**\n   🇧🇷 Brésil · Serie B\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 74 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 13 %     **1-0** · 12 %     **0-1** · 10 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (11 matchs au minimum), pas sur un classement. ⚠️ Leurs derniers matchs datent de plus de 45 jours (championnat à l'arrêt) : prudence sur ce match.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
-   "coup_envoi": "2026-11-08T22:15+00:00",
-   "en_direct": false
-  },
-  {
-   "match": "Deportivo Saprissa - Puntarenas FC",
-   "message": "🏟️  **Deportivo Saprissa**  🆚  **Puntarenas FC**\n   Primera Division Apertura\n━━━━━━━━━━━━━━━━━━━\n\n🎯 **MES PARIS SUR CE MATCH**\n\n🟢 UNDER 3,5 (moins de 4 buts)\n     📈 72 % de chances\n\n💵 **Mise recommandée : max 3 % de ton capital par pari.**\n\n━━━━━━━━━━━━━━━━━━━\n⚽ **SCORES LES PLUS PROBABLES**\n     **1-1** · 11 %     **1-0** · 10 %     **2-1** · 10 %\n\nℹ️ Analyse basée sur les derniers matchs réels des deux équipes (9 matchs au minimum), pas sur un classement. Compétition : Primera Division Apertura. ⚠️ Leurs derniers matchs datent de plus de 45 jours (championnat à l'arrêt) : prudence sur ce match.\n\nℹ️ Un pari à 70-80 % se perd **une fois sur quatre** : c'est prévu, pas une erreur de ta part.\n\n\n\n⚠️ Ceci n'est pas une promesse de gain. Tout pari est un risque. Jouez uniquement de l'argent que vous pouvez vous permettre de perdre.\n\n📖 /aide pour le mode d'emploi.",
-   "coup_envoi": "2026-11-08T22:00+00:00",
-   "en_direct": false
-  }
- ],
+ "jour": "2026-11-09",
+ "fabrique_le": "2026-11-09T00:48:28+00:00",
+ "matchs": [],
  "montante": {
   "mode": "jour",
-  "jour": "2026-11-08",
+  "jour": "2026-11-09",
   "pool": [
    {
-    "match": "Cartagines - CD Escorpiones Belen",
-    "competition": "costa rica primera division",
-    "libelle": "Victoire de Cartagines",
-    "cote": 1.2,
-    "coup_envoi": "2026-11-08T17:00+00:00",
+    "match": "CD Fas - Fuerte S.F.",
+    "competition": "salvador primera",
+    "libelle": "Victoire de CD Fas",
+    "cote": 1.23,
+    "coup_envoi": "2026-11-09T01:00+00:00",
     "en_direct": false
    },
    {
-    "match": "Goias - Ponte Preta",
-    "competition": "bresil serie b",
-    "libelle": "Victoire de Goias",
-    "cote": 1.11,
-    "coup_envoi": "2026-11-08T22:15+00:00",
+    "match": "Universitario - Cesar Vallejo Moquegua",
+    "competition": "perou liga 1",
+    "libelle": "Victoire de Universitario",
+    "cote": 1.19,
+    "coup_envoi": "2026-11-09T01:30+00:00",
+    "en_direct": false
+   },
+   {
+    "match": "Marathon - CD Choloma",
+    "competition": "honduras liga nacional",
+    "libelle": "Victoire de Marathon",
+    "cote": 1.2,
+    "coup_envoi": "2026-11-09T01:30+00:00",
     "en_direct": false
    }
   ]
