@@ -1,10 +1,59 @@
 {
- "jour": "2026-11-09",
- "fabrique_le": "2026-11-09T22:56:14+00:00",
+ "jour": "2026-11-10",
+ "fabrique_le": "2026-11-10T15:08:57+00:00",
  "matchs": [],
  "montante": {
   "mode": "jour",
-  "jour": "2026-11-09",
-  "pool": []
+  "jour": "2026-11-10",
+  "pool": [
+   {
+    "match": "Real Madrid F. - Paris FC F.",
+    "competition": "ligue des champions f",
+    "libelle": "Real Madrid F. ou Nul",
+    "cote": 1.1,
+    "coup_envoi": "2026-11-10T17:45+00:00",
+    "en_direct": false
+   },
+   {
+    "match": "Hacken F. - Chelsea F.",
+    "competition": "ligue des champions f",
+    "libelle": "Victoire de Chelsea F.",
+    "cote": 1.16,
+    "coup_envoi": "2026-11-10T17:45+00:00",
+    "en_direct": false
+   },
+   {
+    "match": "FC Midtjylland F. - Odense Q F.",
+    "competition": "danemark elite f",
+    "libelle": "Victoire de FC Midtjylland F.",
+    "cote": 1.15,
+    "coup_envoi": "2026-11-10T18:00+00:00",
+    "en_direct": false
+   },
+   {
+    "match": "Plymouth Argyle - Swindon Town",
+    "competition": "angleterre efl trophy",
+    "libelle": "Plymouth Argyle ou Nul",
+    "cote": 1.1,
+    "coup_envoi": "2026-11-10T19:00+00:00",
+    "en_direct": false
+   },
+   {
+    "match": "Oxford United - Cheltenham",
+    "competition": "angleterre efl trophy",
+    "libelle": "Victoire de Oxford United",
+    "cote": 1.18,
+    "coup_envoi": "2026-11-10T19:00+00:00",
+    "en_direct": false
+   },
+   {
+    "match": "AS Roma F. - Servette FC Chenois F.",
+    "competition": "ligue des champions f",
+    "libelle": "Victoire de AS Roma F.",
+    "cote": 1.18,
+    "coup_envoi": "2026-11-10T20:00+00:00",
+    "en_direct": false
+   }
+  ]
  }
 }
